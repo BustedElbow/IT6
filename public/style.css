@@ -553,3 +553,12 @@ video {
   --tw-contain-paint:  ;
   --tw-contain-style:  ;
 }
+
+.border {
+  border-width: 1px;
+}
+
+.border-lime-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(190 242 100 / var(--tw-border-opacity));
+}
