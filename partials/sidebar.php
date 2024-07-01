@@ -2,8 +2,8 @@
   <div class="sidebar-div">
     <span>Menu</span>
     <ul>
-      <li><a href="../public/index.php">Home</a></li>
-      <li><a href="../public/AddMovies.php">Movie List</a></li>
+      <li><a id="homeLink" href="../public/index.php">Home</a></li>
+      <li><a id="moviesLink" href="../public/movielist.php">Movie List</a></li>
     </ul>
   </div>
   <div class="sidebar-div">
