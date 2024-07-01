@@ -18,5 +18,6 @@
     <a href="#">Log In</a>
     <a href="#">Sign Up</a>
   </main>
+  <script src="script.js"></script>
 </body>
 </html>
