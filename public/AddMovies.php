@@ -8,27 +8,9 @@
     <link rel="stylesheet" href="app.css">
 </head>
 <body>
-    <div>
-        <nav>
-        <ul class= sidebaraddmovies>
-            <li class=>
-                <a href="index.html">
-                    <span>Home</span>
-                </a>
-            </li>
-            <li class="">
-                <a href="#">
-                    <span>Your Movies</span>
-                </a>
-            </li>
-            <li class="">
-                <a href="AddMovies.html">
-                    <span>Add Movies</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    </div>
+  
+    <?php require('partials/sidebar.php'); ?>
+
     <main>
         <div class="tablebody">
             <div class="mov">

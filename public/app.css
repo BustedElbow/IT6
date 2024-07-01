@@ -40,6 +40,9 @@ main{
   background-color: #9aa4b5;
   width: 100%;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Sidebar */
@@ -86,4 +89,61 @@ main{
   display: flex;
   justify-content: space-between;
 }
+/* End of Sidebar */
 
+/* Movie List */
+.sidebaraddmovies {
+  width: 8rem;
+  background-color: white;
+  height: 100vh;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th .table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.table th {
+  background-color: grey;
+  text-align: left;
+}
+
+.table {
+  padding: 0;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.tablebody {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 34px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100vh;
+  height: 900px;
+  width: 935px;
+  background-color: white;
+}
+
+.mov {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.tablecontainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* End of Movie List */
