@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  let currentUrl = window.location.href;
+  const currentUrl = window.location.href;
 
     if (currentUrl.includes('index.php')) {
       const homeLink = document.getElementById('homeLink');
