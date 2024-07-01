@@ -23,10 +23,15 @@ img {
 }
 /* End of reset */
 
+:root {
+  /* Colors */
+  --primary-color: #5c7ced;
+  --hover-color: #59689b;  
+}
 
 body{
   display: flex;
-  
+  font-family: 'Inter', sans-serif;
 }
 
 main{
@@ -40,4 +45,35 @@ main{
   width: 16rem;
   background-color: white;
   height: 100vh;
+  padding: 85px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px
 }
+
+.sidebar span {
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.sidebar li{
+  padding: 8px 16px;
+}
+
+.sidebar li:hover {
+  background-color: var(--hover-color);
+  color: white;
+  border-radius: 4px;
+}
+
+.sidebar-div{
+  display: flex;
+  flex-direction: column;
+  gap: 16px
+}
+
+.nav-lib-div-title{
+  display: flex;
+  justify-content: space-between;
+}
+

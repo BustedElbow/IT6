@@ -1,34 +1,20 @@
-<!-- <nav>
-        <ul class="text-white font-semibold p-2 w-64 h-screen bg-gray-800 divide-y">
-            <span class="">Movie Manager</span>
-            <li class="">
-                <a href="#">
-                    <span>Search</span>
-                </a>
-            </li>
-            <li class=>
-                <a href="index.html">
-                    <span>Home</span>
-                </a>
-            </li>
-            <li class="">
-                <a href="#">
-                    <span>Your Movies</span>
-                </a>
-            </li>
-            <li class="">
-                <a href="AddMovies.html">
-                    <span>Add Movies</span>
-                </a>
-            </li>
-        </ul>
-    </nav> -->
 <nav class="sidebar">
-  <span>Menu</span>
-  <ul>
-    <li>Home</li>
-    <li>Movie List</li>
-  </ul>
-  
+  <div class="sidebar-div">
+    <span>Menu</span>
+    <ul>
+      <li><a>Home</a></li>
+      <li><a>Movie List</a></li>
+    </ul>
+  </div>
+  <div class="sidebar-div">
+    <div class="nav-lib-div-title">
+      <span>Library</span>
+      <button>+</button>
+    </div>
+    <ul>
+      <li><a>Watch Later</a></li>
+      <li><a>Add Movie</a></li>
+  </div>
+
 
 </nav>
