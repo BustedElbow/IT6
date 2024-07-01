@@ -85,6 +85,12 @@ main{
   gap: 16px
 }
 
+.sidebar-div ul{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 .nav-lib-div-title{
   display: flex;
   justify-content: space-between;
