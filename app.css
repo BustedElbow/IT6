@@ -5,17 +5,29 @@ html {
   font-size: 16px;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
-body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
   margin: 0;
   padding: 0;
   font-weight: normal;
 }
 
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
 
@@ -23,20 +35,21 @@ img {
   max-width: 100%;
   height: auto;
 }
+
 /* End of reset */
 
 :root {
   /* Colors */
   --primary-color: #5c7ced;
-  --hover-color: #59689b;  
+  --hover-color: #59689b;
 }
 
-body{
+body {
   display: flex;
   font-family: 'Inter', sans-serif;
 }
 
-main{
+main {
   background-color: #9aa4b5;
   width: 100%;
   height: 100vh;
@@ -46,7 +59,7 @@ main{
 }
 
 /* Sidebar */
-.sidebar{
+.sidebar {
   width: 16rem;
   background-color: white;
   height: 100vh;
@@ -79,22 +92,23 @@ main{
   color: white;
 }
 
-.sidebar-div{
+.sidebar-div {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.sidebar-div ul{
+.sidebar-div ul {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
 
-.nav-lib-div-title{
+.nav-lib-div-title {
   display: flex;
   justify-content: space-between;
 }
+
 /* End of Sidebar */
 
 /* Movie List */
@@ -111,14 +125,20 @@ main{
 }
 
 .table th {
-  background-color: grey;
+  background-color: white;
   text-align: left;
+  width: 33.33%;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 12px;
+  font-weight: 500;
 }
 
 .table {
   padding: 0;
   width: 100%;
   margin: 0 auto;
+  table-layout: fixed;
 }
 
 .tablebody {
@@ -144,7 +164,67 @@ main{
   width: 100%;
   display: flex;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: flex;
 }
 
 /* End of Movie List */
+
+/* Overlay */
+#overlay {
+
+  position: fixed;
+  /* Stay in place */
+  display: flex;
+  /* Hidden by default */
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  /* Position the form in the middle of the page */
+  margin: auto;
+  padding: 20px;
+  width: 50%;
+  /* Width */
+  background: white;
+  /* Background color */
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.addmovlistbtn {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 8px 16px;
+
+}
+
+.addmovlistbtn:hover {
+  background-color: var(--hover-color);
+}
