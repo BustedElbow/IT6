@@ -127,8 +127,8 @@ main{
   padding: 1.75rem 2.25rem;
   justify-content: flex-start;
   align-items: flex-start;
-  height: 56.25rem;
-  width: 58.44rem;
+  height: 75%;
+  width: 75%;
   background-color: white;
   border-radius: 0.5rem;
 }
