@@ -4,12 +4,12 @@ include 'connection.php'; // Include your connection script
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect value of input field
-    $title = mysqli_real_escape_string($conn, $_POST['title']);
+    $title = mysqli_real_escape_string($conn, $_POST['movieTitle']);
     $director = mysqli_real_escape_string($conn, $_POST['director']);
-    $year = mysqli_real_escape_string($conn, $_POST['year']);
+    $releaseYear = mysqli_real_escape_string($conn, $_POST['releaseYear']);
 
     // SQL query to insert data into the movies table
-    $sql = "INSERT INTO tbl_movie (title, director, releaseyear) VALUES ('$title', '$director', '$year')";
+    $sql = "INSERT INTO tbl_movie (title, director, releaseYear) VALUES ('$title', '$director', '$releaseYear')";
 
     // Execute the query
     if (mysqli_query($conn, $sql)) {
