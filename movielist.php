@@ -15,36 +15,18 @@
     <div class="tablebody">
       <div class="mov">
         <h1>Movies</h1>
-        <button>Add</button>
+        <button onclick="showOverlay()" class="addmovlistbtn">Add</button>
       </div>
       <div class="tablecontainer">
-        <form method="post">
-          <input type="text" name="movieTitle" placeholder="Movie Title" required>
-          <input type="text" name="releaseYear" placeholder="Release Year" required>
-          <input type="text" name="rating" placeholder="Rating" required>
-          <button type="submit" id="addMovieBtn">Add Movie</button>
-        </form>
         <table class="table">
-          <thead>
+          <thead class = tablehead>
             <tr>
               <th>Title</th>
-              <th>Release</th>
-              <th>Rating</th>
+              <th>Director</th>
+              <th>Release Year</th>
             </tr>
           </thead>
           <tbody>
-            <?php
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-              $movieTitle = $_POST['movieTitle'];
-              $releaseYear = $_POST['releaseYear'];
-              $rating = $_POST['rating'];
-              echo "<tr>";
-              echo "<td>$movieTitle</td>";
-              echo "<td>$releaseYear</td>";
-              echo "<td>$rating</td>";
-              echo "</tr>";
-            }
-            ?>
             <tr>
               <td></td>
               <td></td>
@@ -63,13 +45,31 @@
           </tbody>
         </table>
       </div>
+    </div>
+    <div id="overlay" style="display:none;">
+      <div class="overlay-content">
+        <span class="close" onclick="hideOverlay()">&times;</span>
+        <form id="addMovieForm" action="addmovie.php" method="POST">
+          <input type="text" name="movieTitle" placeholder="Movie Title" required>
+          <input type="date" name="director" placeholder="Director" required>
+          <input type="text" name="releaseYear" placeholder="Realease Year" required>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
   </main>
+
+  <div id="overlay" style="display: none;"></div>
   <script src="script.js"></script>
-  <script>
-    document.getElementById('addMovieBtn').addEventListener('click', function(event) {
-      alert('Movie added successfully!');
-    });
-  </script>
 </body>
 
 </html>
+
+
+<!--
+<form action="addmovie.php" method="POST"></form>
+        <input type="text" name="movieTitle" placeholder="Movie Title" required>
+        <input type="date" name="releaseYear" placeholder="Release Year" required>
+        <input type="text" name="director" placeholder="Director" required>
+        <button type="submit" id="addMovieBtn">Add Movie</button>
+      </form>
