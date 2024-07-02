@@ -14,5 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
       moviesLink.style.borderRadius = '4px';
       moviesLink.style.color = 'white'; 
     }
+});
 
+document.getElementById('addMovieBtn').addEventListener('click', () => {
+  alert('Movie added successfully!');
 });
