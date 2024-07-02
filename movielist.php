@@ -18,6 +18,12 @@
         <button>Add</button>
       </div>
       <div class="tablecontainer">
+        <form method="post">
+          <input type="text" name="movieTitle" placeholder="Movie Title" required>
+          <input type="text" name="releaseYear" placeholder="Release Year" required>
+          <input type="text" name="rating" placeholder="Rating" required>
+          <button type="submit" id="addMovieBtn">Add Movie</button>
+        </form>
         <table class="table">
           <thead>
             <tr>
@@ -27,27 +33,43 @@
             </tr>
           </thead>
           <tbody>
+            <?php
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+              $movieTitle = $_POST['movieTitle'];
+              $releaseYear = $_POST['releaseYear'];
+              $rating = $_POST['rating'];
+              echo "<tr>";
+              echo "<td>$movieTitle</td>";
+              echo "<td>$releaseYear</td>";
+              echo "<td>$rating</td>";
+              echo "</tr>";
+            }
+            ?>
             <tr>
-              <td>The Lorax</td>
-              <td>2012</td>
-              <td>4/5</td>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>
             <tr>
-              <td>Sausage Party</td>
-              <td>2016</td>
-              <td>3.5/5</td>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>
             <tr>
-              <td>Equalizer</td>
-              <td>2014</td>
-              <td>4.5/5</td>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>
           </tbody>
         </table>
       </div>
-    </div>
   </main>
   <script src="script.js"></script>
+  <script>
+    document.getElementById('addMovieBtn').addEventListener('click', function(event) {
+      alert('Movie added successfully!');
+    });
+  </script>
 </body>
 
 </html>
