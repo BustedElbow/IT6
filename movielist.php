@@ -14,7 +14,7 @@
   <main>
     <div class="tablebody">
       <div class="mov">
-        <h1>MOVIES</h1>
+        <h1>Movies</h1>
         <button>Add</button>
       </div>
       <div class="tablecontainer">
