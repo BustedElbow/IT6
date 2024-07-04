@@ -18,12 +18,6 @@
         <h1>Movies</h1>
         <button id="addmovieBtn">Add</button>
       </div>
-      <?php
-  // Database connection
-  include 'connection.php';
-  $sql = "SELECT title, director, releaseYear FROM tbl_movie";
-  $result = $conn->query($sql);
-  ?>
       <div class="tablecontainer">
         <table class="table">
           <thead class = tablehead>
@@ -34,18 +28,9 @@
             </tr>
           </thead>
           <tbody>
-            <?php
-            if ($result->num_rows > 0) {
-              // Output data of each row
-              while($row = $result->fetch_assoc()) {
-                echo "<tr><td>" . htmlspecialchars($row["title"]) . "</td><td>" . htmlspecialchars($row["director"]) . "</td><td>" . htmlspecialchars($row["releaseYear"]);  //"</td><td><button class='deleteBtn' onclick='deleteMovie(" . $row["MovieID"] . ")'>Delete</button></td></tr>";
-              }
-            } else {
-              echo "<tr><td colspan='3'>No movies found</td></tr>";
-            }
-            //Add a Flag instead of Delete
-            $conn->close();
-            ?>
+
+            <?php require('partials/movielisttable.php') ?>
+            
           </tbody>
         </table>
       </div>
