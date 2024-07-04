@@ -29,8 +29,8 @@
           </thead>
           <tbody>
 
-            <?php require('partials/movielisttable.php') ?>
-            
+            <?php require('logic/movielisttable.php') ?>
+
           </tbody>
         </table>
       </div>
