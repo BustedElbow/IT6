@@ -12,7 +12,7 @@
       <button id="addlistBtn">+</button>
     </div>
     <ul>
-  
+      <?php require('../it6/logic/playlistList.php'); ?>
     </ul>
   </div>
 </nav>
