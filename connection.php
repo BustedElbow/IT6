@@ -1,15 +1,20 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "admin123";
-$database = "db_movies";
+$host = 'localhost';
+$db   = 'db_movies';
+$user = 'root';
+$pass = 'admin123';
+$charset = 'utf8mb4';
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $database);
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
+];
 
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+try {
+    $pdo = new PDO($dsn, $user, $pass, $options);
+} catch (\PDOException $e) {
+    throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
-echo "Connected successfully";
 ?>

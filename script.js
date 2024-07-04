@@ -16,9 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-document.getElementById('addMovieBtn').addEventListener('click', () => {
-  alert('Movie added successfully!');
-});
+let addmovieBtn = document.getElementById('addmovieBtn');
+addmovieBtn.addEventListener('click', showOverlay);
 
 function showOverlay() {
   document.getElementById('overlay').style.display = 'block';

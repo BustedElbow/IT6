@@ -1,7 +1,6 @@
 <?php
-include 'connection.php'; // Include your connection script
+include 'connection.php'; 
 
-// Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect value of input field
     $title = mysqli_real_escape_string($conn, $_POST['movieTitle']);
