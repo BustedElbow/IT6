@@ -1,6 +1,7 @@
 <?php
 
-include 'logic/connection.php';
+include 'connection.php';
+
 $sql = "SELECT title, director, releaseYear FROM tbl_movie";
 $result = $conn->query($sql);
 
