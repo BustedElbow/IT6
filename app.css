@@ -116,12 +116,28 @@ main {
 .table {
   width: 100%;
   border-collapse: collapse;
+  border-spacing: 0 10px
 }
 
 .table th .table td {
   padding: 8px;
   border: 1px solid #ddd;
   text-align: left;
+}
+
+.table td {
+  padding: 8px;
+
+  .table-container {
+    max-height: 500px;
+    /* Adjust based on your needs */
+    overflow-y: auto;
+    /* Enables vertical scrolling */
+    overflow-x: hidden;
+    /* Hides horizontal scrollbar, adjust as needed */
+  }
+
+
 }
 
 .table th {
@@ -165,6 +181,9 @@ main {
   display: flex;
   justify-content: flex-start;
   align-items: flex;
+  max-height: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 /* End of Movie List */
@@ -189,15 +208,20 @@ main {
 }
 
 .overlay-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   position: relative;
   top: 25%;
   /* Position the form in the middle of the page */
   margin: auto;
-  padding: 20px;
-  width: 50%;
+  padding: 10px;
+  width: 20%;
   /* Width */
   background: white;
   /* Background color */
+  border-radius: 0.5rem;
+
 }
 
 .close {
@@ -225,6 +249,59 @@ main {
 
 }
 
-.addmovlistbtn:hover {
+#addmovieBtn {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  /* Consolidated padding */
+  background-color: var(--primary-color);
+  /* Adjust this to match the home button */
+  color: white;
+  /* Adjust text color to match the home button */
+  border: none;
+  /* Adjust or add border properties to match the home button */
+  border-radius: 0.25rem;
+  /* Adjust to match the home button */
+  font-size: 1rem;
+  /* Adjust to match the home button */
+  cursor: pointer;
+}
+
+#addmovieBtn:hover {
   background-color: var(--hover-color);
+  color: white;
+}
+
+.overlayh1 {
+  display: flex;
+
+  order: -1;
+}
+
+.submitoverlay {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 0.25rem;
+
+  cursor: pointer;
+
+}
+
+.submitoverlay:hover {
+  background-color: var(--hover-color);
+  color: white;
+}
+
+.addMovieForm {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  grid-area: 2/1;
 }

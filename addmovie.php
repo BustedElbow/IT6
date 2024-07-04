@@ -1,7 +1,6 @@
 <?php
-include 'connection.php'; // Include your connection script
+include 'connection.php'; 
 
-// Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect value of input field
     $title = mysqli_real_escape_string($conn, $_POST['movieTitle']);
@@ -18,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 }
-
+header('Location: movielist.php');
 // Close the connection
 mysqli_close($conn);
 ?>

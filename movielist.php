@@ -10,14 +10,14 @@
 <body>
   
   <?php require('partials/sidebar.php'); ?>
+  <?php require('partials/addmovieoverlay.php'); ?>
 
   <main>
     <div class="tablebody">
       <div class="mov">
         <h1>Movies</h1>
-        <button onclick="showOverlay()" class="addmovlistbtn">Add</button>
+        <button id="addmovieBtn">Add</button>
       </div>
-      
       <?php
   // Database connection
   include 'connection.php';
@@ -50,26 +50,8 @@
         </table>
       </div>
     </div>
-    <div id="overlay" style="display:none;">
-      <div class="overlay-content">
-        <h1 class="playlist1">Movie Details</h1>
-        <span class="close" onclick="hideOverlay()">&times;</span>
-        <form id="addMovieForm" action="addmovie.php" method="POST">
-          <label for="movietitle">Movie Title: </label>
-          <input type="text" name="movieTitle" required>
-          <label for="director Title">Director: </label>
-          <input type="text" name="director"  required>
-          <label for="releaseYear">Release Year: </label>
-          <input type="date" name="releaseYear" required>
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-    </div>
   </main>
-
-  <div id="overlay" style="display: none;"></div>
   <script src="script.js"></script>
 </body>
 
 </html>
-
