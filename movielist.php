@@ -51,7 +51,8 @@
       </div>
     </div>
   </main>
-  <script src="script.js"></script>
+
+  <script src="logic/script.js"></script>
 </body>
 
 </html>
