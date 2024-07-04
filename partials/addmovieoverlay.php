@@ -1,6 +1,4 @@
-
-
-<div id="overlay" style="display:none;">
+<div id="addmovieOverlay" style="display:none;">
   <div class="overlay-content">
     <h1 class="overlayh1">Movie Details</h1>
     <span class="close" onclick="hideOverlay()">&times;</span>

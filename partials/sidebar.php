@@ -18,6 +18,4 @@
   </div>
 </nav>
 
-<div id="showlistOverlay">
- 
-</div>
+<?php require('addlistoverlay.php'); ?>
