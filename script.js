@@ -17,12 +17,26 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 let addmovieBtn = document.getElementById('addmovieBtn');
-addmovieBtn.addEventListener('click', showOverlay);
+if (addmovieBtn) {
+  addmovieBtn.addEventListener('click', showOverlay);
+}
 
 function showOverlay() {
-  document.getElementById('overlay').style.display = 'block';
+  document.getElementById('addmovieOverlay').style.display = 'block';
 }
 
 function hideOverlay() {
-  document.getElementById('overlay').style.display = 'none';
+  document.getElementById('addmovieOverlay').style.display = 'none';
+}
+
+let addlistBtn = document.getElementById('addlistBtn');
+addlistBtn.addEventListener('click', showListOverlay);
+
+let hideListOverlay = document.querySelector('#hideListOverlay');
+hideListOverlay.addEventListener('click', () => {
+  document.querySelector('#showlistOverlay').style.display = 'none';
+})
+
+function showListOverlay() {
+  document.getElementById('showlistOverlay').style.display = 'flex';
 }
