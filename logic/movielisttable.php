@@ -1,8 +1,7 @@
 <?php
 
-include 'connection.php';
-
-$sql = "SELECT title, director, releaseYear FROM tbl_movie";
+include 'logic/connection.php';
+$sql = "SELECT title, director, releaseYear FROM tbl_movie WHERE active = 1 ORDER BY title ASC";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
