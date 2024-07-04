@@ -14,7 +14,7 @@
   <?php require('partials/sidebar.php'); ?>
   
   <main class="main">
-    <h1>Home</h1>
+    <h1>Home Page</h1>
   </main>
   <script src="script.js"></script>
 </body>
