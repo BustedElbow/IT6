@@ -216,6 +216,7 @@ input {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  padding-bottom: 8px;
 }
 
 .tablecontainer {
@@ -254,7 +255,7 @@ input {
   top: 25%;
   margin: auto;
   padding: 10px;
-  width: 30%;
+  width: 30rem;
   height: 50%;
   background: white;
   border-radius: 0.5rem;
@@ -297,24 +298,11 @@ input {
 
 .overlayh1 {
   display: flex;
-  padding-bottom: 44px
-}
-
-.submitoverlay {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 8px 20px;
-  border: none;
-  border-radius: 0.25rem;
-  cursor: pointer;
-  margin: auto;
-}
-
-.submitoverlay:hover {
-  background-color: var(--hover-color);
-  color: white;
+  justify-content: flex-start;
+  padding-bottom: 4px;
 
 }
+
 
 #showlistOverlay {
   position: fixed;
@@ -357,7 +345,7 @@ input {
   font-size: 20px;
 }
 
-.listoverlay-content .button-container {
+.button-container {
   display: flex;
   gap: 0.25rem;
   border-top: 1px solid black;
@@ -374,12 +362,19 @@ input {
 
 .addMovieForm {
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-direction: column;
   position: relative;
   width: 50%;
   height: 50%;
   gap: 10px;
+  padding-top: 15px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
 
+.button-container-movielist {
+  display: flex;
+  gap: 0.25rem;
+  padding-top: 1.625rem;
 }
