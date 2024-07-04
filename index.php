@@ -14,16 +14,7 @@
   <?php require('partials/sidebar.php'); ?>
   
   <main class="main">
-    <h2>Add Movie</h2>
-    <form action="addmovie.php" method="post">
-      <label for="title">Title:</label><br>
-      <input type="text" id="title" name="title" required><br>
-      <label for="director">Director:</label><br>
-      <input type="text" id="director" name="director" required><br>
-      <label for="year">Year:</label><br>
-      <input type="date" id="year" name="year" required><br>
-      <input type="submit" value="Submit">
-    </form>
+    <h1>Home</h1>
   </main>
   <script src="script.js"></script>
 </body>
