@@ -170,16 +170,12 @@ main {
 /* End of Movie List */
 
 /* Overlay */
-#overlay {
+#addmovieOverlay {
 
   position: fixed;
-  /* Stay in place */
   display: flex;
-  /* Hidden by default */
   width: 100%;
-  /* Full width */
   height: 100%;
-  /* Full height */
   top: 0;
   left: 0;
   right: 0;
@@ -191,13 +187,10 @@ main {
 .overlay-content {
   position: relative;
   top: 25%;
-  /* Position the form in the middle of the page */
   margin: auto;
   padding: 20px;
   width: 50%;
-  /* Width */
   background: white;
-  /* Background color */
 }
 
 .close {
@@ -228,3 +221,28 @@ main {
 .addmovlistbtn:hover {
   background-color: var(--hover-color);
 }
+
+#showlistOverlay {
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.4); 
+  display: none; 
+  justify-content: center;
+  align-items: center;
+}
+
+.listoverlay-content {
+  width: 50%;
+  height: 50%;
+  background-color: white;
+  border-radius: .5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
