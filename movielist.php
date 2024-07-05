@@ -21,23 +21,23 @@
       <div class="tablecontainer">
         <table class="table">
           <thead class = tablehead>
-            <tr>
-              <th>Movie Title</th>
-              <th>Director</th>
-              <th>Release Date</th>
-            </tr>
-          </thead>
-          <tbody>
-
-            <?php require('logic/movielisttable.php') ?>
-
-          </tbody>
+            <tbody>
+              <tr>
+                <th>Movie Title</th>
+                <th>Director</th>
+                <th>Release Date</th>
+              </tr>
+              </thead>
+              <?php require('logic/movielisttable.php') ?>
+            </tbody>
         </table>
+        
       </div>
     </div>
   </main>
 
   <script src="logic/script.js"></script>
+  </script>
 </body>
 
 </html>
