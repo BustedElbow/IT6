@@ -173,11 +173,8 @@ input {
 
   .table-container {
     max-height: 500px;
-    /* Adjust based on your needs */
     overflow-y: auto;
-    /* Enables vertical scrolling */
     overflow-x: hidden;
-    /* Hides horizontal scrollbar, adjust as needed */
   }
 
 }
