@@ -71,6 +71,7 @@ input {
   height: 2rem;
   padding: 0.5rem;
   background-color: rgba(0, 0, 0, 0.1);
+  width: 100%;
 }
 
 .primary-button {
@@ -276,17 +277,11 @@ input {
   align-items: center;
   justify-content: center;
   padding: 8px 16px;
-  /* Consolidated padding */
   background-color: var(--primary-color);
-  /* Adjust this to match the home button */
   color: white;
-  /* Adjust text color to match the home button */
   border: none;
-  /* Adjust or add border properties to match the home button */
   border-radius: 0.25rem;
-  /* Adjust to match the home button */
   font-size: 1rem;
-  /* Adjust to match the home button */
   cursor: pointer;
 }
 
@@ -331,8 +326,8 @@ input {
 }
 
 .listoverlay-content {
-  width: 15%;
-  height: 30%;
+  width: 18rem;
+  height: 20rem;
   background-color: white;
   border-radius: .5rem;
   display: flex;
