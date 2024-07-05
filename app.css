@@ -179,7 +179,6 @@ input {
     /* Hides horizontal scrollbar, adjust as needed */
   }
 
-
 }
 
 .table th {
@@ -190,6 +189,7 @@ input {
   border-bottom: 1px solid black;
   padding: 12px;
   font-weight: 500;
+  pointer-events: none;
 }
 
 .table {
@@ -209,6 +209,22 @@ input {
   width: 75%;
   background-color: white;
   border-radius: 0.5rem;
+}
+
+.table tbody tr:hover {
+  background-color: var(--hover-color);
+  cursor: pointer;
+  color: white;
+}
+
+.table tbody tr:hover td:first-child {
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.table tbody tr:hover td:last-child {
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
 }
 
 .mov {

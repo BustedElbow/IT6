@@ -40,3 +40,19 @@ hideListOverlay.addEventListener('click', () => {
 function showListOverlay() {
   document.getElementById('showlistOverlay').style.display = 'flex';
 }
+
+//action listener for movie list
+document.addEventListener('DOMContentLoaded', function () {
+  // Select all table rows within the tbody of the table
+  var rows = document.querySelectorAll('.table tbody tr');
+
+  rows.forEach(function (row) {
+    row.addEventListener('click', function () {
+      // Example action: log the first cell's text (movie title) to the console
+      console.log(this.cells[0].textContent);
+
+      // Example action: navigate to a URL
+      window.location.href = 'movielist.php?title=' + encodeURIComponent(this.cells[0].textContent);
+    });
+  });
+});
