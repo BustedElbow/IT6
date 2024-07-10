@@ -1,23 +1,4 @@
-<?php
 
-require '../logic/connection.php';
-
-$sql = "SELECT m.movieID, m.title, m.director, m.releaseYear, m.active, u.username, u.userID
-FROM tbl_movie m
-JOIN tbl_users u ON m.userID = u.userID"; 
-$result = $conn->query($sql);
-
-$movies = [];
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        $movies[] = $row;
-    }
-} else {
-    echo "0 results";
-}
-$conn->close();
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,39 +16,45 @@ $conn->close();
 
 <body>
 
-  <?php require '../partials/navbar.php';
-  $isAdmin = $isAdmin ?? false;
+  <?php require '../partials/navbar.php'; ?>
+
+
+  <main class="main container">
+    <!-- Trigger Modal Button -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addMovieModal">
+  Add Movie
+</button>
   
-//   if (!isset($_SESSION['userId'])) {
-//     $_SESSION['userId'] = null;
-// }
-   ?>
+    <?php require '../partials/movielist.php'; ?>
 
-
-<main class="main container">
-  <h1>Home Page</h1>
-  <div class="row">
-    <?php foreach ($movies as $movie): ?>
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <img src="movie_image.jpg" class="card-img-top" alt="<?= htmlspecialchars($movie['title'] ?? ''); ?>">
-          <div class="card-body">
-            <h5 class="card-title"><?= htmlspecialchars($movie['title'] ?? ''); ?></h5>
-            <p class="card-text">Director: <?= htmlspecialchars($movie['director'] ?? ''); ?></p>
-            <p class="card-text">Release Date: <?= htmlspecialchars($movie['teleaseYear'] ?? ''); ?></p>
-            <p class="card-text">Added by: <?= htmlspecialchars($movie['username'] ?? ''); ?></p>
-            <p>Session User ID: <?= htmlspecialchars($_SESSION['userID'] ?? 'Not set'); ?></p>
-            <!-- Print movie userID -->
-            <p>Movie User ID: <?= htmlspecialchars($movie['userID'] ?? 'Not set'); ?></p>
-            
-            <?php if ($isAdmin || $_SESSION['userID'] == ($movie['userID'] ?? null)): ?>
-              <a href="edit_movie.php?id=<?= $movie['id'] ?? ''; ?>" class="btn btn-primary">Edit</a>
-            <?php endif; ?>
-          </div>
-        </div>
+    <div class="modal fade" id="addMovieModal" tabindex="-1" aria-labelledby="addMovieModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addMovieModalLabel">Add New Movie</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-    <?php endforeach; ?>
+      <div class="modal-body">
+        <form id="addMovieForm" method="POST" action="../logic/addmovie.php">
+          <div class="mb-3">
+            <label for="movieTitle" class="form-label">Title</label>
+            <input type="text" class="form-control" id="movieTitle" name="title" required>
+          </div>
+          <div class="mb-3">
+            <label for="movieDirector" class="form-label">Director</label>
+            <input type="text" class="form-control" id="movieDirector" name="director">
+          </div>
+          <div class="mb-3">
+            <label for="releaseDate" class="form-label">Release Date</label>
+            <input type="date" class="form-control" id="releaseDate" name="releaseDate">
+          </div>
+          <!-- Add more fields as needed -->
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
   </div>
+</div>
   </main>
   <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>

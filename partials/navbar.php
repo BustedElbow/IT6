@@ -12,11 +12,16 @@ session_start()
   <div class="d-none d-lg-block bg-primary">
     <ul class="nav justify-content-center">
       <li class="nav-item">
-        <?php if(isset($_SESSION['username'])): ?>
-          <a class="nav-link text-dark" href="#">Hello, <?= htmlspecialchars($_SESSION['username']); ?></a>
-        <?php else: ?>
-          <a class="nav-link text-dark" href="#">Welcome, Guest</a>
-        <?php endif; ?>
+      <?php if(isset($_SESSION['username'])): ?>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Hello, <?= htmlspecialchars($_SESSION['username']); ?>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="../src/login.view.php">Logout</a></li>
+          </ul>
+        </li>
+      <?php endif; ?>
       </li>
     </ul>
   </div>
