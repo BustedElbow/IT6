@@ -2,7 +2,7 @@
 session_start()
 ?>
 
-<nav>
+<nav class="sticky-top">
   <div class="bg-primary d-lg-none">
     <button class="btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">
       <i class="lni lni-menu"></i>

@@ -9,7 +9,7 @@ if(isset($_POST['login'])) {
   $password = mysqli_real_escape_string($conn, $_POST['password']);
 
   // Modified SQL query to select UserId
-  $sql = "SELECT userID, username FROM tbl_users WHERE username = '$username' AND password = '$password'";
+  $sql = "SELECT userID, username, isAdmin FROM tbl_users WHERE username = '$username' AND password = '$password'";
   $result = mysqli_query($conn, $sql);
 
   if(mysqli_num_rows($result) > 0) {
@@ -17,8 +17,9 @@ if(isset($_POST['login'])) {
     echo "Login successful";
     header('Location: ../src/index.php');
     $_SESSION['username'] = $user['username'];
-    $_SESSION['userID'] = $user['userID']; // Store username
-     // Store userId
+    $_SESSION['userID'] = $user['userID'];
+    $_SESSION['isAdmin'] = $user['isAdmin']; 
+
   } else {
     echo "Login failed";
   }
