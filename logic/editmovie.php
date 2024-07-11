@@ -10,16 +10,17 @@ if(isset($_POST['save'])) {
   $title = $_POST['title'];
   $director = $_POST['director'];
   $releaseDate = $_POST['releaseDate'];
+  $genre = $_POST['genre'];
 
   // Prepare an UPDATE statement
-  $sql = "UPDATE tbl_movie SET title = ?, director = ?, releaseYear = ? WHERE movieID = ?";
+  $sql = "UPDATE tbl_movie SET title = ?, director = ?, releaseYear = ?, genre = ? WHERE movieID = ?";
 
   // Prepare the statement
   $stmt = $conn->prepare($sql);
 
   // Bind parameters to the prepared statement
   // "sssi" specifies the types: s = string, i = integer
-  $stmt->bind_param("sssi", $title, $director, $releaseDate, $movieID);
+  $stmt->bind_param("ssssi", $title, $director, $releaseDate, $genre, $movieID);
 
   // Execute the prepared statement
   if($stmt->execute()) {

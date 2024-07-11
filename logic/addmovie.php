@@ -3,19 +3,34 @@ session_start();
 
 require 'connection.php';
 
+$title = $_POST['title'];
+$director = $_POST['director'];
+$releaseDate = $_POST['releaseDate'];
+$genre = $_POST['genre'];
+$userID = $_SESSION['userID']; // Assuming userID is stored in session
 
-  $title = $_POST['title'];
-  $director = $_POST['director'];
-  $releaseDate = $_POST['releaseDate'];
+if (empty($releaseDate)) {
+  $releaseDate = NULL;
+}
+// Prepare the SQL statement with placeholders
+$sql = "INSERT INTO tbl_movie (title, director, releaseYear, genre, userID) VALUES (?, ?, ?, ?, ?)";
 
+// Prepare the statement
+$stmt = $conn->prepare($sql);
 
-  $sql = "INSERT INTO tbl_movie (title, director, releaseYear, active, userID) VALUES ('$title', '$director', '$releaseDate', 1, '{$_SESSION['userID']}')";
+// Bind the parameters
+$stmt->bind_param("ssssi", $title, $director, $releaseDate, $genre, $userID);
 
-if ($conn->query($sql) === TRUE) {
-  header('Location: ../src/index.php');
+// Execute the statement and check if it was successful
+if ($stmt->execute()) {
+    header('Location: ../src/index.php');
 } else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $stmt->error;
 }
 
+// Close the statement
+$stmt->close();
+
+// Close the connection
 $conn->close();
 ?>

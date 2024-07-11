@@ -1,12 +1,13 @@
-<div class="modal fade" id="addMovieModal" tabindex="-1" aria-labelledby="addMovieModalLabel" aria-hidden="true">
+<div class="modal fade" id="editMovieModal" tabindex="-1" aria-labelledby="editMovieModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="addMovieModalLabel">Add New Movie</h5>
+        <h5 class="modal-title" id="editMovieModalLabel">Edit Movie</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form id="addMovieForm" method="POST" action="../logic/addmovie.php">
+        <form id="editMovieForm" method="POST" action="../logic/editmovie.php">
+          <input type="hidden" id="movieID" name="movieID">
           <div class="mb-3">
             <label for="movieTitle" class="form-label">Title</label>
             <input type="text" class="form-control" id="movieTitle" name="title" required>
@@ -33,10 +34,32 @@
               <option value="thriller">Thriller</option>
             </select>
           </div>
-          <!-- Add more fields as needed -->
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" name="save" class="btn btn-primary">Save Changes</button>
         </form>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  let editButtons = document.querySelectorAll('.editBtn');
+
+
+  editButtons.forEach(button => {
+    button.addEventListener('click', function() {
+
+      let movieId = this.getAttribute('data-movie-id');
+      let movieTitle = this.getAttribute('data-movie-title');
+      let movieDirector = this.getAttribute('data-movie-director');
+      let releaseDate = this.getAttribute('data-release-date');
+
+      document.getElementById('movieID').value = movieId;
+      document.getElementById('movieTitle').value = movieTitle;
+      document.getElementById('movieDirector').value = movieDirector;
+      document.getElementById('releaseDate').value = releaseDate;
+    });
+  });
+});
+
+</script>
