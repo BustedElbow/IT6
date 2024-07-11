@@ -19,7 +19,7 @@
   <?php require '../partials/navbar.php'; ?>
 
 
-  <main class="main container">
+  <main class="main container py-2">
   
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addMovieModal">
   Add Movie
