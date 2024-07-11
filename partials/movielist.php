@@ -32,7 +32,7 @@ require 'deletemodal.php';
         $hasMovies = true; ?>
         <div class="col-md-3 mb-3">
           <div class="card w-auto">
-            <img src="<?= !empty($movie['image']) ? htmlspecialchars($movie['image']) : '../src/images/no_image.png'; ?>" class="img-thumbnail" alt="<?= htmlspecialchars($movie['title'] ?? 'Default Title'); ?>">
+            <img src="<?= !empty($movie['image']) ? htmlspecialchars($movie['image']) : '../src/images/no_image.png'; ?>" class="border-bottom border-1" alt="<?= htmlspecialchars($movie['title'] ?? 'Default Title'); ?>">
             <div class="card-body">
               <h5 class="card-title"><?= htmlspecialchars($movie['title'] ?? ''); ?></h5>
               <p class="card-text mb-1">Director: <?= htmlspecialchars($movie['director'] ?? ''); ?></p>
@@ -70,7 +70,7 @@ require 'deletemodal.php';
         $otherMovies = true; ?>
         <div class="col-md-3 mb-3">
           <div class="card w-auto">
-          <img src="<?= !empty($movie['image']) ? htmlspecialchars($movie['image']) : '../src/images/no_image.png'; ?>" class="img-thumbnail" alt="<?= htmlspecialchars($movie['title'] ?? 'Default Title'); ?>">
+          <img src="<?= !empty($movie['image']) ? htmlspecialchars($movie['image']) : '../src/images/no_image.png'; ?>" class="border-bottom border-1" alt="<?= htmlspecialchars($movie['title'] ?? 'Default Title'); ?>">
             <div class="card-body">
               <h5 class="card-title"><?= htmlspecialchars($movie['title'] ?? ''); ?></h5>
               <p class="card-text mb-1">Director: <?= htmlspecialchars($movie['director'] ?? ''); ?></p>
