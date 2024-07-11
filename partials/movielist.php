@@ -11,8 +11,6 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         $movies[] = $row;
     }
-} else {
-    echo "0 results";
 }
 
 $isAdmin = $_SESSION['isAdmin'] ?? false;
@@ -27,8 +25,11 @@ require 'deletemodal.php';
 <div class="container">
   <h2>My Movies</h2>
   <div class="row">
-    <?php foreach ($movies as $movie): ?>
-      <?php if ($_SESSION['userID'] == ($movie['userID'] ?? null)): ?>
+    <?php
+    $hasMovies = false; 
+    foreach ($movies as $movie):
+      if ($_SESSION['userID'] == ($movie['userID'] ?? null)):
+        $hasMovies = true; ?>
         <div class="col-md-4 mb-4">
           <div class="card">
             <img src="movie_image.jpg" class="card-img-top" alt="<?= htmlspecialchars($movie['title'] ?? ''); ?>">
@@ -53,12 +54,20 @@ require 'deletemodal.php';
         </div>
       <?php endif; ?>
     <?php endforeach; ?>
+    <?php if (!$hasMovies): ?>
+      <div class="col-12 text-center">
+        <div class='text-center mt-5'><h4 class='text-secondary'>You haven't added any movies yet.</h4></div>
+      </div>
+    <?php endif; ?>
   </div>
 
   <h2>Other Movies</h2>
   <div class="row">
-    <?php foreach ($movies as $movie): ?>
-      <?php if ($_SESSION['userID'] != ($movie['userID'] ?? null)): ?>
+    <?php
+    $otherMovies = false; 
+    foreach ($movies as $movie):
+      if ($_SESSION['userID'] != ($movie['userID'] ?? null)):
+        $otherMovies = true; ?>
         <div class="col-md-4 mb-4">
           <div class="card">
             <img src="movie_image.jpg" class="card-img-top" alt="<?= htmlspecialchars($movie['title'] ?? ''); ?>">
@@ -77,13 +86,17 @@ require 'deletemodal.php';
                 data-movie-genre="<?= htmlspecialchars($movie['genre'] ?? ''); ?>">Edit</button>
                 <button type="button" class="btn btn-danger deleteBtn" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" 
                 data-movie-id="<?= htmlspecialchars($movie['movieID'] ?? ''); ?>">Delete</button>
-
               <?php endif; ?>
             </div>
           </div>
         </div>
       <?php endif; ?>
     <?php endforeach; ?>
+    <?php if (!$otherMovies): ?>
+      <div class="col-12 text-center">
+        <div class='text-center mt-5'><h4 class='text-secondary'>No movies added by other users yet.</h4></div>
+      </div>
+    <?php endif; ?>
   </div>
 </div>
 
