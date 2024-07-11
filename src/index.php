@@ -19,8 +19,8 @@
   <?php require '../partials/navbar.php'; ?>
 
 
-  <main class="main container">
-    <!-- Trigger Modal Button -->
+  <main class="main container py-2">
+  
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addMovieModal">
   Add Movie
     </button>
