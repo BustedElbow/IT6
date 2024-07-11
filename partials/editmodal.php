@@ -53,11 +53,13 @@ document.addEventListener('DOMContentLoaded', () => {
       let movieTitle = this.getAttribute('data-movie-title');
       let movieDirector = this.getAttribute('data-movie-director');
       let releaseDate = this.getAttribute('data-release-date');
+      let genre = this.getAttribute('data-movie-genre');
 
       document.getElementById('movieID').value = movieId;
       document.getElementById('movieTitle').value = movieTitle;
       document.getElementById('movieDirector').value = movieDirector;
       document.getElementById('releaseDate').value = releaseDate;
+      document.getElementById('movieGenre').value = genre;
     });
   });
 });

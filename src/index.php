@@ -20,7 +20,7 @@
 
 
   <main class="main container">
-    <!-- Trigger Modal Button -->
+  
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addMovieModal">
   Add Movie
     </button>

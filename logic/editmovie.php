@@ -12,6 +12,10 @@ if(isset($_POST['save'])) {
   $releaseDate = $_POST['releaseDate'];
   $genre = $_POST['genre'];
 
+  if (empty($releaseDate)) {
+    $releaseDate = NULL;
+  }
+
   $sql = "UPDATE tbl_movie SET title = ?, director = ?, releaseYear = ?, genre = ? WHERE movieID = ?";
 
   $stmt = $conn->prepare($sql);

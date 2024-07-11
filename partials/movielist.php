@@ -17,9 +17,6 @@ if ($result->num_rows > 0) {
 
 $isAdmin = $_SESSION['isAdmin'] ?? false;
 
-echo "isAdmin: " . ($isAdmin ? 'true' : 'false'); 
-
-
 $conn->close();
 
 require 'editmodal.php';
@@ -46,7 +43,8 @@ require 'deletemodal.php';
                 data-movie-id="<?= htmlspecialchars($movie['movieID'] ?? ''); ?>" 
                 data-movie-title="<?= htmlspecialchars($movie['title'] ?? ''); ?>" 
                 data-movie-director="<?= htmlspecialchars($movie['director'] ?? ''); ?>" 
-                data-release-date="<?= htmlspecialchars($movie['releaseYear'] ?? ''); ?>">Edit</button>
+                data-release-date="<?= htmlspecialchars($movie['releaseYear'] ?? ''); ?>"
+                data-movie-genre="<?= htmlspecialchars($movie['genre'] ?? ''); ?>">Edit</button>
                 <button type="button" class="btn btn-danger deleteBtn" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" 
                 data-movie-id="<?= htmlspecialchars($movie['movieID'] ?? ''); ?>">Delete</button>
               <?php endif; ?>
@@ -75,7 +73,8 @@ require 'deletemodal.php';
                 data-movie-id="<?= htmlspecialchars($movie['movieID'] ?? ''); ?>" 
                 data-movie-title="<?= htmlspecialchars($movie['title'] ?? ''); ?>" 
                 data-movie-director="<?= htmlspecialchars($movie['director'] ?? ''); ?>" 
-                data-release-date="<?= htmlspecialchars($movie['releaseYear'] ?? ''); ?>">Edit</button>
+                data-release-date="<?= htmlspecialchars($movie['releaseYear'] ?? ''); ?>"
+                data-movie-genre="<?= htmlspecialchars($movie['genre'] ?? ''); ?>">Edit</button>
                 <button type="button" class="btn btn-danger deleteBtn" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" 
                 data-movie-id="<?= htmlspecialchars($movie['movieID'] ?? ''); ?>">Delete</button>
 
