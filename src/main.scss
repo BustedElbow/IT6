@@ -28,6 +28,17 @@ $link-color: #00bfff;
 
 .sticky-search {
   position: sticky;
-  top: 50px; /* Height of the navbar */
+  top: 55px; /* Height of the navbar */
   z-index: 1010; 
+}
+
+.nav-brand {
+  text-decoration: none;
+  align-self: center;
+  color: white;
+}
+
+.nav-bar-custom {
+  height: 3rem;
+  background-color: #282929; 
 }
