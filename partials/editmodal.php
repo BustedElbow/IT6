@@ -6,8 +6,12 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form id="editMovieForm" method="POST" action="../logic/editmovie.php">
+        <form id="editMovieForm" method="POST" action="../logic/editmovie.php" enctype="multipart/form-data">
           <input type="hidden" id="movieID" name="movieID">
+          <div class="mb-3">
+            <label for="movieThumbnail" class="form-label">Movie Thumbnail</label>
+            <input type="file" class="form-control" id="movieThumbnail" name="thumbnail" accept="image/png, image/jpeg">
+          </div>
           <div class="mb-3">
             <label for="movieTitle" class="form-label">Title</label>
             <input type="text" class="form-control" id="movieTitle" name="title" required>
@@ -24,14 +28,14 @@
             <label for="movieGenre" class="form-label">Genre</label>
             <select class="form-control" id="movieGenre" name="genre">
               <option value="">Select a Genre</option>
-              <option value="action">Action</option>
-              <option value="comedy">Comedy</option>
-              <option value="drama">Drama</option>
-              <option value="fantasy">Fantasy</option>
-              <option value="horror">Horror</option>
-              <option value="mystery">Mystery</option>
-              <option value="romance">Romance</option>
-              <option value="thriller">Thriller</option>
+              <option value="Action">Action</option>
+              <option value="Comedy">Comedy</option>
+              <option value="Drama">Drama</option>
+              <option value="Fantasy">Fantasy</option>
+              <option value="Horror">Horror</option>
+              <option value="Mystery">Mystery</option>
+              <option value="Romance">Romance</option>
+              <option value="Thriller">Thriller</option>
             </select>
           </div>
           <button type="submit" name="save" class="btn btn-primary">Save Changes</button>
