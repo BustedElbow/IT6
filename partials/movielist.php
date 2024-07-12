@@ -1,7 +1,7 @@
 <?php
 require '../logic/connection.php';
 
-$sql = "SELECT m.movieID, m.title, m.director, m.releaseYear, m.genre, u.username, u.userID
+$sql = "SELECT m.movieID, m.title, m.director, m.releaseYear, m.genre, u.username, u.userID, m.imagePath
   FROM tbl_movie m
   JOIN tbl_users u ON m.userID = u.userID"; 
 $result = $conn->query($sql);
@@ -32,7 +32,8 @@ require 'deletemodal.php';
         $hasMovies = true; ?>
         <div class="col-md-3 mb-3">
           <div class="card w-auto">
-            <img src="<?= !empty($movie['image']) ? htmlspecialchars($movie['image']) : '../src/images/no_image.png'; ?>" class="border-bottom border-1" alt="<?= htmlspecialchars($movie['title'] ?? 'Default Title'); ?>">
+            <img src="<?= !empty($movie['imagePath']) ? '../src/images/movies/' . htmlspecialchars($movie['imagePath']) : '../src/images/movies/no_image.png'; ?>" class="card-img-top img-fluid border-bottom border-1" alt="<?= htmlspecialchars($movie['title'] ?? 'Default Title'); ?>">
+        
             <div class="card-body">
               <h5 class="card-title"><?= htmlspecialchars($movie['title'] ?? ''); ?></h5>
               <p class="card-text mb-1">Director: <?= htmlspecialchars($movie['director'] ?? ''); ?></p>
@@ -45,7 +46,8 @@ require 'deletemodal.php';
                 data-movie-title="<?= htmlspecialchars($movie['title'] ?? ''); ?>" 
                 data-movie-director="<?= htmlspecialchars($movie['director'] ?? ''); ?>" 
                 data-release-date="<?= htmlspecialchars($movie['releaseYear'] ?? ''); ?>"
-                data-movie-genre="<?= htmlspecialchars($movie['genre'] ?? ''); ?>">Edit</button>
+                data-movie-genre="<?= htmlspecialchars($movie['genre'] ?? ''); ?>"
+                data-movie-image="<?= htmlspecialchars($movie['imagePath'] ?? ''); ?>">Edit</button>
                 <button type="button" class="btn btn-danger deleteBtn" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" 
                 data-movie-id="<?= htmlspecialchars($movie['movieID'] ?? ''); ?>">Delete</button>
               <?php endif; ?>
@@ -70,7 +72,7 @@ require 'deletemodal.php';
         $otherMovies = true; ?>
         <div class="col-md-3 mb-3">
           <div class="card w-auto">
-          <img src="<?= !empty($movie['image']) ? htmlspecialchars($movie['image']) : '../src/images/no_image.png'; ?>" class="border-bottom border-1" alt="<?= htmlspecialchars($movie['title'] ?? 'Default Title'); ?>">
+          <img src="<?= !empty($movie['imagePath']) ? '../src/images/movies/' . htmlspecialchars($movie['imagePath']) : '../src/images/movies/no_image.png'; ?>" class="card-img-top img-fluid border-bottom border-1" alt="<?= htmlspecialchars($movie['title'] ?? 'Default Title'); ?>">           
             <div class="card-body">
               <h5 class="card-title"><?= htmlspecialchars($movie['title'] ?? ''); ?></h5>
               <p class="card-text mb-1">Director: <?= htmlspecialchars($movie['director'] ?? ''); ?></p>
