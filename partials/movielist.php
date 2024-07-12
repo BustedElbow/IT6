@@ -20,7 +20,21 @@ $conn->close();
 require 'editmodal.php';
 require 'deletemodal.php';
 
+$search = $_GET['search'] ?? '';
+if (!empty($search)) {
+    $movies = array_filter($movies, function($movie) use ($search) {
+        return stripos($movie['title'], $search) !== false || 
+               stripos($movie['director'], $search) !== false ||
+               stripos($movie['genre'], $search) !== false;
+    });
+}
+
 ?>
+
+<form action="" method="GET">
+  <input type="text" name="search" placeholder="Search movies..." class="form-control mb-3">
+  <button type="submit" class="btn btn-primary">Search</button>
+</form>
 
 <div class="container">
   <h2>My Movies</h2>
@@ -31,8 +45,8 @@ require 'deletemodal.php';
       if ($_SESSION['userID'] == ($movie['userID'] ?? null)):
         $hasMovies = true; ?>
         <div class="col-md-3 mb-3">
-          <div class="card w-auto">
-            <img src="<?= !empty($movie['imagePath']) ? '../src/images/movies/' . htmlspecialchars($movie['imagePath']) : '../src/images/movies/no_image.png'; ?>" class="card-img-top img-fluid border-bottom border-1" alt="<?= htmlspecialchars($movie['title'] ?? 'Default Title'); ?>">
+          <div class="card card-color w-auto">
+            <img src="<?= !empty($movie['imagePath']) ? '../src/images/movies/' . htmlspecialchars($movie['imagePath']) : '../src/images/movies/no_image.png'; ?>" class="card-img-top img-fluid" alt="<?= htmlspecialchars($movie['title'] ?? 'Default Title'); ?>">
         
             <div class="card-body">
               <h5 class="card-title"><?= htmlspecialchars($movie['title'] ?? ''); ?></h5>
@@ -71,8 +85,8 @@ require 'deletemodal.php';
       if ($_SESSION['userID'] != ($movie['userID'] ?? null)):
         $otherMovies = true; ?>
         <div class="col-md-3 mb-3">
-          <div class="card w-auto">
-          <img src="<?= !empty($movie['imagePath']) ? '../src/images/movies/' . htmlspecialchars($movie['imagePath']) : '../src/images/movies/no_image.png'; ?>" class="card-img-top img-fluid border-bottom border-1" alt="<?= htmlspecialchars($movie['title'] ?? 'Default Title'); ?>">           
+          <div class="card card-color w-auto">
+          <img src="<?= !empty($movie['imagePath']) ? '../src/images/movies/' . htmlspecialchars($movie['imagePath']) : '../src/images/movies/no_image.png'; ?>" class="card-img-top img-fluid" alt="<?= htmlspecialchars($movie['title'] ?? 'Default Title'); ?>">           
             <div class="card-body">
               <h5 class="card-title"><?= htmlspecialchars($movie['title'] ?? ''); ?></h5>
               <p class="card-text mb-1">Director: <?= htmlspecialchars($movie['director'] ?? ''); ?></p>
