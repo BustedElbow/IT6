@@ -28,11 +28,15 @@ session_start()
   
   <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel" >
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasResponsiveLabel">Responsive offcanvas</h5>
+      <h5 class="offcanvas-title" id="offcanvasResponsiveLabel">Menu</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-      test
+      <ul class="nav flex-column">
+        <li><a href="#" class="nav-link">User Info</a></li>
+        <li><a href="../src/login.view.php" class="nav-link">Logout</a></li>
+      </ul>
     </div>
   </div>
 </nav>
+

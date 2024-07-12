@@ -15,9 +15,27 @@
 </head>
 
 <body>
+  
+<?php require '../partials/navbar.php'; ?>
 
-  <?php require '../partials/navbar.php'; ?>
+<!-- Hamburger Button -->
+<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">
+	<span class="navbar-toggler-icon"></span>
+</button>
 
+<!-- Sidebar -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
+	<div class="offcanvas-header">
+		<h5 class="offcanvas-title" id="sidebarLabel">Menu</h5>
+		<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+	</div>
+	<div class="offcanvas-body">
+		<ul class="nav flex-column">
+			<li class="nav-item"><a href="#" class="nav-link">User Info</a></li>
+			<li class="nav-item"><a href="../src/login.view.php" class="nav-link">Logout</a></li>
+		</ul>
+	</div>
+</div>
 
   <main class="main container py-2">
   
@@ -33,3 +51,5 @@
   <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+
