@@ -46,7 +46,7 @@ if (!empty($search)) {
     foreach ($movies as $movie):
       if ($_SESSION['userID'] == ($movie['userID'] ?? null)):
         $hasMovies = true; ?>
-        <div class="col-md-3 mb-3">
+        <div class="col-lg-3 col-md-4 mb-3">
           <div class="card card-color w-auto">
             <img src="<?= !empty($movie['imagePath']) ? '../src/images/movies/' . htmlspecialchars($movie['imagePath']) : '../src/images/movies/no_image.png'; ?>" class="card-img-top img-fluid" alt="<?= htmlspecialchars($movie['title'] ?? 'Default Title'); ?>">
         
@@ -86,7 +86,7 @@ if (!empty($search)) {
     foreach ($movies as $movie):
       if ($_SESSION['userID'] != ($movie['userID'] ?? null)):
         $otherMovies = true; ?>
-        <div class="col-md-3 mb-3">
+        <div class="col-lg-3 col-md-4 mb-3">
           <div class="card card-color w-auto">
           <img src="<?= !empty($movie['imagePath']) ? '../src/images/movies/' . htmlspecialchars($movie['imagePath']) : '../src/images/movies/no_image.png'; ?>" class="card-img-top img-fluid" alt="<?= htmlspecialchars($movie['title'] ?? 'Default Title'); ?>">           
             <div class="card-body">
