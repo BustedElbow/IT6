@@ -23,21 +23,23 @@ require 'deletemodal.php';
 $search = $_GET['search'] ?? '';
 if (!empty($search)) {
     $movies = array_filter($movies, function($movie) use ($search) {
-        return stripos($movie['title'], $search) !== false || 
-               stripos($movie['director'], $search) !== false ||
-               stripos($movie['genre'], $search) !== false;
+        return stripos($movie['title'], $search) !== false;
     });
 }
 
 ?>
 
-<form action="" method="GET">
-  <input type="text" name="search" placeholder="Search movies..." class="form-control mb-3">
-  <button type="submit" class="btn btn-primary">Search</button>
-</form>
-
 <div class="container">
-  <h2>My Movies</h2>
+  <div class="row justify-content-between align-items-center mb-3 mt-5">
+    <div class="col-auto">
+      <h2>My Movies</h2>
+    </div>
+    <div class="col-auto">
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addMovieModal">
+        Add
+      </button>
+    </div>
+  </div>
   <div class="row gx-3">
     <?php
     $hasMovies = false; 
@@ -72,7 +74,7 @@ if (!empty($search)) {
     <?php endforeach; ?>
     <?php if (!$hasMovies): ?>
       <div class="col-12 text-center">
-        <div class='text-center mt-5'><h4 class='text-secondary'>You haven't added any movies yet.</h4></div>
+        <div class='text-center mt-5'><h4 class='text-secondary'>No movies found</h4></div>
       </div>
     <?php endif; ?>
   </div>
@@ -110,7 +112,7 @@ if (!empty($search)) {
     <?php endforeach; ?>
     <?php if (!$otherMovies): ?>
       <div class="col-12 text-center">
-        <div class='text-center mt-5'><h4 class='text-secondary'>No movies added by other users yet.</h4></div>
+        <div class='text-center mt-5'><h4 class='text-secondary'>No movies found</h4></div>
       </div>
     <?php endif; ?>
   </div>
