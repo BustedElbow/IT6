@@ -13,11 +13,27 @@ if (empty($releaseDate)) {
   $releaseDate = NULL;
 }
 
-$sql = "INSERT INTO tbl_movie (title, director, releaseYear, genre, userID) VALUES (?, ?, ?, ?, ?)";
+// Image upload logic starts here
+if (isset($_FILES['thumbnail']) && $_FILES['thumbnail']['error'] == UPLOAD_ERR_OK) {
+  $uploadDir = '../src/images/movies/';
+  $fileName = basename($_FILES['thumbnail']['name']);
+  $targetPath = $uploadDir . $fileName;
+  
+  if (move_uploaded_file($_FILES['thumbnail']['tmp_name'], $targetPath)) {
+  } else {
+      // Handle error
+      echo "Error uploading file";
+      exit; 
+  }
+} else {
+  $fileName = ''; 
+}
+
+$sql = "INSERT INTO tbl_movie (title, director, releaseYear, genre, userID, imagePath) VALUES (?, ?, ?, ?, ?, ?)";
 
 $stmt = $conn->prepare($sql);
 
-$stmt->bind_param("ssssi", $title, $director, $releaseDate, $genre, $userID);
+$stmt->bind_param("ssssis", $title, $director, $releaseDate, $genre, $userID, $fileName);
 
 if ($stmt->execute()) {
     header('Location: ../src/index.php');
@@ -29,3 +45,4 @@ $stmt->close();
 
 $conn->close();
 ?>
+
