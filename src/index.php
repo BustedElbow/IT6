@@ -16,7 +16,7 @@
 
 <body>
   
-  <?php require '../partials/navbar.php'; ?>
+<?php require '../partials/navbar.php'; ?>
 
   <main class="main container py-2">
   
@@ -25,13 +25,12 @@
         <div class="col">
           <form action="" method="GET" class="d-flex">
             <input type="text" name="search" placeholder="Search movies..." class="form-control me-2">
-            <button type="submit" class="btn btn-primary">Search</button>
           </form>
         </div>
       </div>
     </div>
 
-
+  
     <?php require '../partials/movielist.php'; ?>
 
     <?php require '../partials/addmodal.php'; ?>  

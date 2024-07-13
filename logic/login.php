@@ -19,12 +19,9 @@ if(isset($_POST['login'])) {
     $_SESSION['userID'] = $user['userID'];
     $_SESSION['isAdmin'] = $user['isAdmin']; 
 
-//     //credentials fail
-//   if ($loginFailed) {
-//     header('Location: login.view.php error=Incorrect username or password');
-//     exit();
-// }
   } else {
+    header('Location: ../src/login.view.php');
+    
     echo "Credentials Do Not Match";
   }
 }

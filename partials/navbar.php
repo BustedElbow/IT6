@@ -13,7 +13,7 @@ session_start()
   <div class="container">
     <div class="d-none d-lg-block ms-auto">
       <ul class="nav justify-content-between">
-        <a class="nav-brand" href="#">Brand</a>
+        <a class="nav-brand" href="index.php">Brand</a>
           <?php if(isset($_SESSION['username'])): ?>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

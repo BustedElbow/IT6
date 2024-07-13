@@ -9,11 +9,12 @@ $releaseDate = $_POST['releaseDate'];
 $genre = $_POST['genre'];
 $userID = $_SESSION['userID']; 
 
+$genre = $_POST['genre'] === '' ? null : $_POST['genre'];
+
 if (empty($releaseDate)) {
   $releaseDate = NULL;
 }
 
-// Image upload logic starts here
 if (isset($_FILES['thumbnail']) && $_FILES['thumbnail']['error'] == UPLOAD_ERR_OK) {
   $uploadDir = '../src/images/movies/';
   $fileName = basename($_FILES['thumbnail']['name']);
@@ -21,7 +22,6 @@ if (isset($_FILES['thumbnail']) && $_FILES['thumbnail']['error'] == UPLOAD_ERR_O
   
   if (move_uploaded_file($_FILES['thumbnail']['tmp_name'], $targetPath)) {
   } else {
-      // Handle error
       echo "Error uploading file";
       exit; 
   }

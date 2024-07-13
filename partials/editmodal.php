@@ -30,6 +30,7 @@
               <option value="">Select a Genre</option>
               <option value="Action">Action</option>
               <option value="Comedy">Comedy</option>
+              <option value="Cartoon">Cartoon</option>
               <option value="Drama">Drama</option>
               <option value="Fantasy">Fantasy</option>
               <option value="Horror">Horror</option>
