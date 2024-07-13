@@ -11971,7 +11971,6 @@ textarea.form-control-lg {
   -o-object-fit: cover;
      object-fit: cover;
   aspect-ratio: 16/9;
-  border-bottom: 1px solid red;
 }
 
 .card-color {
