@@ -16,7 +16,7 @@
 
 <body>
   
-  <?php require '../partials/navbar.php'; ?>
+<?php require '../partials/navbar.php'; ?>
 
   <main class="main container py-2">
   
@@ -31,7 +31,7 @@
       </div>
     </div>
 
-
+  
     <?php require '../partials/movielist.php'; ?>
 
     <?php require '../partials/addmodal.php'; ?>  

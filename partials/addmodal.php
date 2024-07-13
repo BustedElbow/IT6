@@ -25,17 +25,20 @@
           </div>
           <div class="mb-3">
             <label for="movieGenre" class="form-label">Genre</label>
-            <select class="form-control" id="movieGenre" name="genre">
-              <option value="">Select a Genre</option>
-              <option value="Action">Action</option>
-              <option value="Comedy">Comedy</option>
-              <option value="Drama">Drama</option>
-              <option value="Fantasy">Fantasy</option>
-              <option value="Horror">Horror</option>
-              <option value="Mystery">Mystery</option>
-              <option value="Romance">Romance</option>
-              <option value="Thriller">Thriller</option>
-            </select>
+            <div id="genreTags" class="mt-2">
+              <select class="form-control" id="movieGenre" name="genre">
+                <option value="">Select a Genre</option>
+                <option value="Action">Action</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Cartoon">Cartoon</option>
+                <option value="Drama">Drama</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Horror">Horror</option>
+                <option value="Mystery">Mystery</option>
+                <option value="Romance">Romance</option>
+                <option value="Thriller">Thriller</option>
+              </select>
+            </div>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
