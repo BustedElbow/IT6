@@ -3,6 +3,7 @@ $body-bg: #343a40;
 $body-color: #f8f9fa;
 $component-active-bg: #3DCCCC;
 $link-color: #3DCCCC;
+$input-focus-border-color: black;
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
@@ -28,12 +29,11 @@ $link-color: #3DCCCC;
   background-color: #282929;
   color: #eeeeee;
 }
-
-.sticky-search {
-  position: sticky;
-  top: 55px;
-  /* Height of the navbar */
-  z-index: 1010;
+.custom-search {
+  width: 60%;
+}
+.nav-main {
+  align-self: center;
 }
 
 .nav-brand {
@@ -43,8 +43,12 @@ $link-color: #3DCCCC;
 }
 
 .nav-bar-custom {
-  height: 3rem;
+  height: auto;
   background-color: #282929;
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  padding: .5rem 0rem;
 }
 
 .custom-form-height {
@@ -65,7 +69,8 @@ $link-color: #3DCCCC;
 
 .text-custom-blue {
   color: #3DCCCC;
-  background-color: #282929;
+  padding: .5rem 0rem;
+  font-size: 20px;
 }
 
 .genre-tag {

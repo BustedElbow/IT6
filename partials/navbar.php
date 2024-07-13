@@ -13,7 +13,10 @@ session_start()
   <div class="container">
     <div class="d-none d-lg-block ms-auto">
       <ul class="nav justify-content-between">
-        <a class="nav-brand h1 text-custom-blue" href="index.php">FilmShelf</a>
+        <a class="nav-brand text-custom-blue" href="index.php">FilmShelf</a>
+        <form action="" method="GET" class="d-flex custom-search">
+            <input type="text" name="search" placeholder="Search movies..." class="form-control search-form">
+        </form>
           <?php if(isset($_SESSION['username'])): ?>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

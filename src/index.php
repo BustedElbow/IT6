@@ -20,17 +20,6 @@
 
   <main class="main container py-2">
   
-    <div class="container sticky-search">
-      <div class="row align-items-center"> 
-        <div class="col">
-          <form action="" method="GET" class="d-flex ">
-            <input type="text" name="search" placeholder="Search movies..." class="form-control me-2">
-          </form>
-        </div>
-      </div>
-    </div>
-
-  
     <?php require '../partials/movielist.php'; ?>
 
     <?php require '../partials/addmodal.php'; ?>  
