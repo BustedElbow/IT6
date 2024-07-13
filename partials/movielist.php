@@ -42,22 +42,10 @@ if (!empty($search)) {
   </div>
   <div class="row gx-3">
     <?php
-    $genreColors = [
-      "Action" => "#68a357", // Dark Green
-      "Comedy" => "#68a357", // Dark Green
-      "Cartoon" => "#68a357", // Dark Green
-      "Drama" => "#68a357", // Dark Green
-      "Fantasy" => "#68a357", // Dark Green
-      "Horror" => "#68a357", // Dark Green
-      "Mystery" => "#68a357", // Dark Green
-      "Romance" => "#68a357" // Dark Green
-    ];
     $hasMovies = false; 
     foreach ($movies as $movie):
       if ($_SESSION['userID'] == ($movie['userID'] ?? null)):
         $hasMovies = true; 
-        $genreColor = $genreColors[$movie['genre']] ?? '#68a357'; // Default to white if genre not found
-        $genreText = array_key_exists($movie['genre'], $genreColors) ? htmlspecialchars($movie['genre']) : 'Unknown Genre'; // Check if genre is known
         ?>
         <div class="col-lg-3 col-md-4 mb-3">
           <div class="card card-color w-auto h-100">
@@ -69,7 +57,7 @@ if (!empty($search)) {
               <p class="card-text mb-1"><span class="genre-tag"><?= htmlspecialchars($movie['genre'] ?? 'Genre: Unknown'); ?></span></p>
               <p class="card-text mb-1 user-added">Added by <?= htmlspecialchars($movie['username'] ?? ''); ?></p>
               <?php if ($isAdmin || $_SESSION['userID'] == ($movie['userID'] ?? null)): ?>
-                <button type="button" class="btn btn-primary editBtn" data-bs-toggle="modal" data-bs-target="#editMovieModal" 
+                <button type="button" class="btn custom-btn editBtn" data-bs-toggle="modal" data-bs-target="#editMovieModal" 
                 data-movie-id="<?= htmlspecialchars($movie['movieID'] ?? ''); ?>" 
                 data-movie-title="<?= htmlspecialchars($movie['title'] ?? ''); ?>" 
                 data-movie-director="<?= htmlspecialchars($movie['director'] ?? ''); ?>" 
@@ -108,7 +96,7 @@ if (!empty($search)) {
               <p class="card-text mb-1"><span class="genre-tag"><?= htmlspecialchars($movie['genre'] ?? 'Genre: Unknown'); ?></span></p>
               <p class="card-text mb-1 user-added">Added by <?= htmlspecialchars($movie['username'] ?? ''); ?></p>
               <?php if ($isAdmin || $_SESSION['userID'] == ($movie['userID'] ?? null)): ?>
-                <button type="button" class="btn btn-primary editBtn" data-bs-toggle="modal" data-bs-target="#editMovieModal" 
+                <button type="button" class="btn custom-btn editBtn" data-bs-toggle="modal" data-bs-target="#editMovieModal" 
                 data-movie-id="<?= htmlspecialchars($movie['movieID'] ?? ''); ?>" 
                 data-movie-title="<?= htmlspecialchars($movie['title'] ?? ''); ?>" 
                 data-movie-director="<?= htmlspecialchars($movie['director'] ?? ''); ?>" 

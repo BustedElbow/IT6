@@ -40,7 +40,7 @@
               <option value="Cartoon">Cartoon</option>
             </select>
           </div>
-          <button type="submit" name="save" class="btn btn-primary">Save Changes</button>
+          <button type="submit" name="save" class="btn custom-btn">Save Changes</button>
         </form>
       </div>
     </div>
