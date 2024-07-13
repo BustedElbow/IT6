@@ -35,8 +35,8 @@ if (!empty($search)) {
       <h2>My Movies</h2>
     </div>
     <div class="col-auto">
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-        Add
+      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#addMovieModal">
+        <img src="../src/images/svg/plus.svg" alt="">
       </button>
     </div>
   </div>
