@@ -1,12 +1,17 @@
 // Include any default variable overrides here (though functions won't be available)
 $body-bg: #343a40;
 $body-color: #f8f9fa;
-$component-active-bg: #007bff;
-$link-color: #00bfff;
+$component-active-bg: #3DCCCC;
+$link-color: #3DCCCC;
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 // Then add additional custom code here
+.custom-btn {
+  background-color: #3DCCCC;
+
+}
+
 .card-img-top {
   width: 100%;
   height: 300px;
@@ -60,4 +65,16 @@ $link-color: #00bfff;
 
 .text-custom-blue {
   color: #3DCCCC;
+  background-color: #282929;
+}
+
+.genre-tag {
+  background-color: #008080;
+  padding: .15rem .5rem .25rem .5rem;
+  border-radius: .25rem;
+  color: white;
+}
+
+.user-added {
+  font-style: italic;
 }
