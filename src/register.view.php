@@ -10,7 +10,7 @@
   <div class="d-flex justify-content-center align-items-center vh-90">
       <div class="container p-5">
         <div class="row">
-          <div class="col-md-6 offset-md-3">
+          <div class="col-md-6 offset-md-3 border border-radius-register">
             <h2>Register</h2>
             <form action="../logic/register.php" method="post">
               <div class="form-group">

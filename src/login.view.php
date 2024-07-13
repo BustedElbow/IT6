@@ -14,9 +14,14 @@
 <body>
     <div class="d-flex justify-content-center align-items-center vh-90">
         <div class="container p-5">
-            <div class="row">
-                <div class="col-md-6 offset-md-3"> <!-- Adjusts width to 50% on medium devices and centers it -->
-                    <h2>Login</h2>
+            <div class="row custom-bg-color border border-radius-container">
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <img src="../src/images/Logo/FilmShelf.png" alt="Logo" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-md-4 custom-form-height mx-auto">
+                    <h2 class="align-self-center text-center">Login</h2>
                     <?php if(isset($_GET['error'])): ?>
                         <div class="alert alert-danger" role="alert">
                             <?php echo htmlspecialchars($_GET['error']); ?>
@@ -33,7 +38,7 @@
                         </div>
                         <button type="submit" name="login" class="btn btn-primary">Login</button>
                     </form>
-                    <a href="register.view.php">Register</a>
+                    <a href="register.view.php" class="align-self-center">Register</a>
                 </div>
             </div>
         </div>

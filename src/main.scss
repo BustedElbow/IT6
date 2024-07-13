@@ -1,34 +1,34 @@
-
 // Include any default variable overrides here (though functions won't be available)
-$body-bg: #343a40; 
-$body-color: #f8f9fa; 
-$component-active-bg: #007bff; 
-$link-color: #00bfff; 
+$body-bg: #343a40;
+$body-color: #f8f9fa;
+$component-active-bg: #007bff;
+$link-color: #00bfff;
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 // Then add additional custom code here
 .card-img-top {
-  width: 100%; 
-  height: 300px; 
-  object-fit: cover; 
-  aspect-ratio: 16 / 9; 
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
 }
 
 .card-color {
-  background-color: #282929; 
-  color: #eeeeee; 
+  background-color: #282929;
+  color: #eeeeee;
 }
 
 .default-nav {
-  background-color: #282929; 
-  color: #eeeeee; 
+  background-color: #282929;
+  color: #eeeeee;
 }
 
 .sticky-search {
   position: sticky;
-  top: 55px; /* Height of the navbar */
-  z-index: 1010; 
+  top: 55px;
+  /* Height of the navbar */
+  z-index: 1010;
 }
 
 .nav-brand {
@@ -39,5 +39,25 @@ $link-color: #00bfff;
 
 .nav-bar-custom {
   height: 3rem;
-  background-color: #282929; 
+  background-color: #282929;
+}
+
+.custom-form-height {
+  min-height: 4rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.border-radius-container {
+  border-radius: 15px;
+  padding-bottom: 4rem;
+}
+
+.border-radius-register {
+  border-radius: 15px;
+  padding: 4rem;
+}
+
+.text-custom-blue {
+  color: #3DCCCC;
 }
