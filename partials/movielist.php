@@ -65,7 +65,7 @@ if (!empty($search)) {
             <div class="card-body">
               <h5 class="card-title"><?= htmlspecialchars($movie['title'] ?? ''); ?></h5>
               <p class="card-text mb-1">Directed by <?= htmlspecialchars($movie['director'] ?? ''); ?></p>
-              <p class="card-text mb-1">Released on <?= htmlspecialchars($movie['releaseYear'] ?? ''); ?></p>
+              <p class="card-text mb-2">Released on <?= !empty($movie['releaseYear']) ? date_format(date_create($movie['releaseYear']), 'F j, Y') : ''; ?></p>
               <p class="card-text mb-1"><span class="genre-tag"><?= htmlspecialchars($movie['genre'] ?? 'Genre: Unknown'); ?></span></p>
               <p class="card-text mb-1 user-added">Added by <?= htmlspecialchars($movie['username'] ?? ''); ?></p>
               <?php if ($isAdmin || $_SESSION['userID'] == ($movie['userID'] ?? null)): ?>
@@ -103,10 +103,10 @@ if (!empty($search)) {
           <img src="<?= !empty($movie['imagePath']) ? '../src/images/movies/' . htmlspecialchars($movie['imagePath']) : '../src/images/movies/no_image.png'; ?>" class="card-img-top img-fluid" alt="<?= htmlspecialchars($movie['title'] ?? 'Default Title'); ?>">           
             <div class="card-body">
               <h5 class="card-title"><?= htmlspecialchars($movie['title'] ?? ''); ?></h5>
-              <p class="card-text mb-1">Director <?= htmlspecialchars($movie['director'] ?? ''); ?></p>
-              <p class="card-text mb-1">Release Date: <?= htmlspecialchars($movie['releaseYear'] ?? ''); ?></p>
-              <p class="card-text mb-1">Genre: <?= htmlspecialchars($movie['genre'] ?? ''); ?></p>
-              <p class="card-text mb-1">Added by: <?= htmlspecialchars($movie['username'] ?? ''); ?></p>
+              <p class="card-text mb-1">Directed by <?= htmlspecialchars($movie['director'] ?? ''); ?></p>
+              <p class="card-text mb-2">Released on <?= !empty($movie['releaseYear']) ? date_format(date_create($movie['releaseYear']), 'F j, Y') : ''; ?></p>
+              <p class="card-text mb-1"><span class="genre-tag"><?= htmlspecialchars($movie['genre'] ?? 'Genre: Unknown'); ?></span></p>
+              <p class="card-text mb-1 user-added">Added by <?= htmlspecialchars($movie['username'] ?? ''); ?></p>
               <?php if ($isAdmin || $_SESSION['userID'] == ($movie['userID'] ?? null)): ?>
                 <button type="button" class="btn btn-primary editBtn" data-bs-toggle="modal" data-bs-target="#editMovieModal" 
                 data-movie-id="<?= htmlspecialchars($movie['movieID'] ?? ''); ?>" 

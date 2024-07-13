@@ -11,6 +11,8 @@ if (isset($_POST['save'])) {
   $genre = $_POST['genre'];
   $userID = $_SESSION['userID'];
 
+  $genre = $_POST['genre'] === '' ? null : $_POST['genre'];
+  
   if (empty($releaseDate)) {
       $releaseDate = NULL;
   }
