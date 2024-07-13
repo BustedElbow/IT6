@@ -35,6 +35,7 @@
               <option value="Mystery">Mystery</option>
               <option value="Romance">Romance</option>
               <option value="Thriller">Thriller</option>
+              <option value="Cartoon">Cartoon</option>
             </select>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>

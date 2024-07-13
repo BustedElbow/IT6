@@ -47,15 +47,15 @@ if (!empty($search)) {
       if ($_SESSION['userID'] == ($movie['userID'] ?? null)):
         $hasMovies = true; ?>
         <div class="col-lg-3 col-md-4 mb-3">
-          <div class="card card-color w-auto">
+          <div class="card card-color w-auto h-100">
             <img src="<?= !empty($movie['imagePath']) ? '../src/images/movies/' . htmlspecialchars($movie['imagePath']) : '../src/images/movies/no_image.png'; ?>" class="card-img-top img-fluid" alt="<?= htmlspecialchars($movie['title'] ?? 'Default Title'); ?>">
         
             <div class="card-body">
               <h5 class="card-title"><?= htmlspecialchars($movie['title'] ?? ''); ?></h5>
-              <p class="card-text mb-1">Director: <?= htmlspecialchars($movie['director'] ?? ''); ?></p>
-              <p class="card-text mb-1">Release Date: <?= htmlspecialchars($movie['releaseYear'] ?? ''); ?></p>
-              <p class="card-text mb-1">Genre: <?= htmlspecialchars($movie['genre'] ?? ''); ?></p>
-              <p class="card-text mb-1">Added by: <?= htmlspecialchars($movie['username'] ?? ''); ?></p>
+              <p class="card-text mb-1">Directed by <?= htmlspecialchars($movie['director'] ?? ''); ?></p>
+              <p class="card-text mb-1">Released on <?= htmlspecialchars($movie['releaseYear'] ?? ''); ?></p>
+              <p class="card-text mb-1"><span class="genre-tag"><?= htmlspecialchars($movie['genre'] ?? 'Genre: Unknown'); ?></span></p>
+              <p class="card-text mb-1 user-added">Added by <?= htmlspecialchars($movie['username'] ?? ''); ?></p>
               <?php if ($isAdmin || $_SESSION['userID'] == ($movie['userID'] ?? null)): ?>
                 <button type="button" class="btn btn-primary editBtn" data-bs-toggle="modal" data-bs-target="#editMovieModal" 
                 data-movie-id="<?= htmlspecialchars($movie['movieID'] ?? ''); ?>" 
@@ -86,7 +86,7 @@ if (!empty($search)) {
     foreach ($movies as $movie):
       if ($_SESSION['userID'] != ($movie['userID'] ?? null)):
         $otherMovies = true; ?>
-        <div class="col-lg-3 col-md-4 mb-3">
+        <div class="col-lg-3 col-md-4 mb-3 h-100">
           <div class="card card-color w-auto">
           <img src="<?= !empty($movie['imagePath']) ? '../src/images/movies/' . htmlspecialchars($movie['imagePath']) : '../src/images/movies/no_image.png'; ?>" class="card-img-top img-fluid" alt="<?= htmlspecialchars($movie['title'] ?? 'Default Title'); ?>">           
             <div class="card-body">

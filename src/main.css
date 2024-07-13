@@ -11998,4 +11998,15 @@ textarea.form-control-lg {
 .nav-bar-custom {
   height: 3rem;
   background-color: #282929;
+}
+
+.genre-tag {
+  background-color: #50a450;
+  padding: 0.15rem 0.5rem 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  color: white;
+}
+
+.user-added {
+  font-style: italic;
 }/*# sourceMappingURL=main.css.map */

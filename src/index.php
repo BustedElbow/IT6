@@ -21,7 +21,7 @@
   <main class="main container py-2">
   
     <div class="container sticky-search">
-      <div class="row align-items-center"> <!-- Added sticky-top class here -->
+      <div class="row align-items-center"> 
         <div class="col">
           <form action="" method="GET" class="d-flex">
             <input type="text" name="search" placeholder="Search movies..." class="form-control me-2">
