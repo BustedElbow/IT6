@@ -15,7 +15,7 @@ session_start()
       <ul class="nav justify-content-between">
         <a class="nav-brand text-custom-blue" href="index.php">FilmShelf</a>
         <form action="" method="GET" class="d-flex custom-search">
-            <input type="text" name="search" placeholder="Search movies..." class="form-control search-form">
+            <input type="text" name="search" placeholder="Search movies..." class="custom-input search-form">
         </form>
           <?php if(isset($_SESSION['username'])): ?>
             <li class="nav-item dropdown">
