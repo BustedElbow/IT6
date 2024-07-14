@@ -5,7 +5,7 @@ include 'connection.php';
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-$sql = "INSERT INTO tbl_users (username, password, isAdmin) VALUES ('$username', '$password', 0)";
+$sql = "INSERT INTO tbl_users (username, password, isAdmin, picture) VALUES ('$username', '$password', 0, '')";
 
 if ($conn->query($sql) === TRUE) {
   header('Location: ../src/login.view.php');

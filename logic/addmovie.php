@@ -29,7 +29,7 @@ if (isset($_FILES['thumbnail']) && $_FILES['thumbnail']['error'] == UPLOAD_ERR_O
   $fileName = ''; 
 }
 
-$sql = "INSERT INTO tbl_movie (title, director, releaseYear, genre, userID, imagePath) VALUES (?, ?, ?, ?, ?, ?)";
+$sql = "INSERT INTO tbl_movie (title, director, releaseYear, genre, userID, thumbnail) VALUES (?, ?, ?, ?, ?, ?)";
 
 $stmt = $conn->prepare($sql);
 

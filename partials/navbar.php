@@ -1,5 +1,27 @@
 <?php 
-session_start()
+session_start();
+
+require '../logic/connection.php';
+
+if (isset($_SESSION['userID'])) {
+  $sql = "SELECT username, password, picture FROM tbl_users WHERE userID = ?";
+
+  $stmt = $conn -> prepare($sql);
+
+  $stmt -> bind_param("i", $_SESSION['userID']);
+
+  $stmt -> execute();
+
+  $result = $stmt -> get_result();
+  if ($row = $result -> fetch_assoc()) {
+    $username = $row['username'];
+    $password = $row['password'];
+    $picture = $row['picture'];
+  } else {
+    echo "User not found.";
+  }
+}
+
 ?>
 
 <nav class="sticky-top nav-bar-custom">
@@ -12,15 +34,17 @@ session_start()
   
   <div class="container">
     <div class="d-none d-lg-block ms-auto">
-      <ul class="nav justify-content-between">
+      <div class="nav justify-content-between">
         <a class="nav-brand text-custom-blue" href="index.php"><img src="../src/images/Logo/logo_alt.png" alt=""></a>
-        <form action="" method="GET" class="d-flex custom-search">
-            <input type="text" name="search" placeholder="Search movies..." class="custom-input search-form">
-        </form>
+        <?php if (basename($_SERVER['SCRIPT_NAME']) != 'userprofile.php'): ?>
+          <form action="" method="GET" class="d-flex custom-search">
+              <input type="text" name="search" placeholder="Search movies..." class="custom-input search-form">
+          </form>
+        <?php endif ?>
           <?php if(isset($_SESSION['username'])): ?>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Hello, <?= htmlspecialchars($_SESSION['username']); ?>
+              <a class="dropdown-toggle text-light text-decoration-none" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img class="img-circle-sm" src="../src/images/users/<?= !empty($picture) ? htmlspecialchars($picture) : 'no_image.png' ?>"><?= htmlspecialchars($_SESSION['username']); ?>
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>

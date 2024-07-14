@@ -30,7 +30,7 @@ if (isset($_POST['save'])) {
   }
 
   if (!empty($fileName)) {
-      $sql = "UPDATE tbl_movie SET title = ?, director = ?, releaseYear = ?, genre = ?, imagePath = ? WHERE movieID = ?";
+      $sql = "UPDATE tbl_movie SET title = ?, director = ?, releaseYear = ?, genre = ?, thumbnail = ? WHERE movieID = ?";
       $params = ["sssssi", $title, $director, $releaseDate, $genre, $fileName, $movieID];
   } else {
       $sql = "UPDATE tbl_movie SET title = ?, director = ?, releaseYear = ?, genre = ? WHERE movieID = ?";
