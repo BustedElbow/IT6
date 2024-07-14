@@ -23,7 +23,22 @@ session_start()
                 Hello, <?= htmlspecialchars($_SESSION['username']); ?>
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="../src/login.view.php">Logout</a></li>
+                <li>
+                  <div class="d-flex gap-2 dropdown-item">
+                    <img class="custom-img" src="../src/images/svg/user.svg">
+                    <a class="custom-link" href="../src/userprofile.php">
+                      Profile
+                    </a>
+                  </div>
+                </li>
+                <li>
+                  <div class="d-flex gap-2 dropdown-item">
+                    <i class="custom-img lni lni-exit"></i>
+                    <a class="custom-link" href="../src/login.view.php">
+                    Logout
+                    </a>
+                  </div>
+                </li>
               </ul>
             </li>
           <?php endif; ?>
