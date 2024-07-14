@@ -13,7 +13,7 @@ session_start()
   <div class="container">
     <div class="d-none d-lg-block ms-auto">
       <ul class="nav justify-content-between">
-        <a class="nav-brand text-custom-blue" href="index.php">FilmShelf</a>
+        <a class="nav-brand text-custom-blue" href="index.php"><img src="../src/images/Logo/logo_alt.png" alt=""></a>
         <form action="" method="GET" class="d-flex custom-search">
             <input type="text" name="search" placeholder="Search movies..." class="custom-input search-form">
         </form>
