@@ -41,10 +41,9 @@ if (isset($_SESSION['userID'])) {
               <input type="text" name="search" placeholder="Search movies..." class="custom-input search-form">
           </form>
         <?php endif ?>
-          <?php if(isset($_SESSION['username'])): ?>
             <li class="nav-item dropdown">
               <a class="dropdown-toggle text-light text-decoration-none" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <img class="img-circle-sm" src="../src/images/users/<?= !empty($picture) ? htmlspecialchars($picture) : 'no_image.png' ?>"><?= htmlspecialchars($_SESSION['username']); ?>
+                <img class="img-circle-sm" src="../src/images/users/<?= !empty($picture) ? htmlspecialchars($picture) : 'no_image.png' ?>"><?= htmlspecialchars($username); ?>
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
@@ -65,7 +64,6 @@ if (isset($_SESSION['userID'])) {
                 </li>
               </ul>
             </li>
-          <?php endif; ?>
         </ul>
       </div>
     </div>
