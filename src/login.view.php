@@ -10,20 +10,18 @@
 <body>
   <div class="d-flex justify-content-center align-items-center min-vh-100 ">
       <div class="login-container">
-        <div class="col-md-12">
-          <div class="text-center">
+        <div class="d-flex justify-content-center">
             <img src="images/logo/logo.png" alt="Logo" class="">
-          </div>
         </div>
         <div class="">
             <form action="../logic/login.php" method="POST">
               <div class="form-group">
                 <label for="email">Username</label>
-                <input type="text" class="form-control" id="email" name="username" required>
+                <input type="text" class="custom-input" id="email" name="username" required>
               </div>
               <div class="form-group mb-3">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" name="password" required>
+                <input type="password" class="custom-input" id="password" name="password" required>
               </div>
               <button type="submit" name="login" class="btn custom-btn w-100">Login</button>
             </form>

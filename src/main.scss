@@ -10,7 +10,6 @@ $input-focus-border-color: black;
 // Then add additional custom code here
 .custom-btn {
   background-color: #3DCCCC;
-
 }
 
 .card-img-top {
@@ -29,9 +28,11 @@ $input-focus-border-color: black;
   background-color: #282929;
   color: #eeeeee;
 }
+
 .custom-search {
   width: 60%;
 }
+
 .nav-main {
   align-self: center;
 }
@@ -48,29 +49,12 @@ $input-focus-border-color: black;
   display: flex;
   align-content: center;
   flex-wrap: wrap;
-  padding: .5rem 0rem;
-}
-
-.custom-form-height {
-  min-height: 4rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.border-radius-container {
-  border-radius: 15px;
-  padding-bottom: 4rem;
+  padding: .75rem 0rem;
 }
 
 .border-radius-register {
   border-radius: 15px;
   padding: 4rem;
-}
-
-.text-custom-blue {
-  color: #3DCCCC;
-  padding: .5rem 0rem;
-  font-size: 20px;
 }
 
 .genre-tag {
@@ -82,4 +66,36 @@ $input-focus-border-color: black;
 
 .user-added {
   font-style: italic;
+}
+
+.custom-link {
+  align-self: center;
+  text-decoration: none;
+}
+
+.custom-img {
+  align-self: center;
+  height: 1rem;
+  width: 1rem;
+}
+
+.login-container {
+  width: 30rem;
+  background-color: #282929;
+  padding: 2rem;
+  border-radius: .5rem;
+}
+
+.custom-input {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--bs-body-color);
+  appearance: none;
+  background-color: #383838;
+  border-radius: var(--bs-border-radius);
+  border: none;
 }
