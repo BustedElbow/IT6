@@ -45,7 +45,7 @@ if (!empty($search)) {
     $hasMovies = false; 
     foreach ($movies as $movie):
       if ($_SESSION['userID'] == ($movie['userID'] ?? null)):
-        $hasMovies = true; 
+        $hasMovies = true;
         ?>
         <div class="col-lg-3 col-md-4 mb-3">
           <div class="card card-color w-auto h-100">
@@ -55,7 +55,7 @@ if (!empty($search)) {
               <p class="card-text mb-1">Directed by <?= htmlspecialchars($movie['director'] ?? ''); ?></p>
               <p class="card-text mb-2">Released on <?= !empty($movie['releaseYear']) ? date_format(date_create($movie['releaseYear']), 'F j, Y') : ''; ?></p>
               <p class="card-text mb-3"><span class="genre-tag"><?= htmlspecialchars($movie['genre'] ?? '--Not Set--'); ?></span></p> 
-              <p class="card-text mb-3">Comment: <span class="comment-tag"><?= htmlspecialchars($movie['comment'] ?? '--Not Set--'); ?></span></p>
+              <p class="card-text mb-3 card-text comment fst-italic"><span class="comment-tag"><?= htmlspecialchars($movie['comment'] ?? '--Not Set--',15); ?></span></p>
               <?php if ($isAdmin || $_SESSION['userID'] == ($movie['userID'] ?? null)): ?>
                 <button type="button" class="btn custom-btn editBtn" data-bs-toggle="modal" data-bs-target="#editMovieModal" 
                 data-movie-id="<?= htmlspecialchars($movie['movieID'] ?? ''); ?>" 
@@ -123,3 +123,20 @@ if (!empty($search)) {
   </div>
 </div>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to truncate text
+    function truncateText(selector, maxLength) {
+        var elements = document.querySelectorAll(selector);
+        for (var i = 0; i < elements.length; i++) {
+            var element = elements[i];
+            if (element.innerText.length > maxLength) {
+                element.innerText = element.innerText.substr(0, maxLength) + '...';
+            }
+        }
+    }
+
+    // Apply truncation to all elements with the class 'comment'
+    truncateText('.comment', 60); // Truncate to 100 characters
+});
+</script>
