@@ -19,6 +19,7 @@ $conn->close();
 
 require 'editmodal.php';
 require 'deletemodal.php';
+require 'commentmodal.php';
 
 $search = $_GET['search'] ?? '';
 if (!empty($search)) {
@@ -55,7 +56,7 @@ if (!empty($search)) {
               <p class="card-text mb-1">Directed by <?= htmlspecialchars($movie['director'] ?? ''); ?></p>
               <p class="card-text mb-2">Released on <?= !empty($movie['releaseYear']) ? date_format(date_create($movie['releaseYear']), 'F j, Y') : ''; ?></p>
               <p class="card-text mb-3"><span class="genre-tag"><?= htmlspecialchars($movie['genre'] ?? '--Not Set--'); ?></span></p> 
-              <p class="card-text mb-3 card-text comment fst-italic"><span class="comment-tag"><?= htmlspecialchars($movie['comment'] ?? '--Not Set--',15); ?></span></p>
+              <p class="card-text mb-3 comment fst-italic" data-bs-toggle="modal" data-bs-target="#fullCommentModal" data-full-comment="<?= htmlspecialchars($movie['comment'] ?? '--Not Set--'); ?>"><span class="comment-tag"><?= htmlspecialchars($movie['comment'] ?? '--Not Set--',15);?></span></p>
               <?php if ($isAdmin || $_SESSION['userID'] == ($movie['userID'] ?? null)): ?>
                 <button type="button" class="btn custom-btn editBtn" data-bs-toggle="modal" data-bs-target="#editMovieModal" 
                 data-movie-id="<?= htmlspecialchars($movie['movieID'] ?? ''); ?>" 
@@ -124,7 +125,7 @@ if (!empty($search)) {
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function() {
     // Function to truncate text
     function truncateText(selector, maxLength) {
         var elements = document.querySelectorAll(selector);
@@ -132,11 +133,27 @@ document.addEventListener('DOMContentLoaded', function() {
             var element = elements[i];
             if (element.innerText.length > maxLength) {
                 element.innerText = element.innerText.substr(0, maxLength) + '...';
+                element.classList.add('truncated');
             }
         }
     }
 
     // Apply truncation to all elements with the class 'comment'
     truncateText('.comment', 60); // Truncate to 100 characters
+    
+    //comment modal
+  
+    var commentElements = document.querySelectorAll('.comment');
+    var fullCommentModal = document.getElementById('fullCommentModal');
+    var modalBody = fullCommentModal.querySelector('.modal-body');
+
+    commentElements.forEach(function(commentElement) {
+        commentElement.addEventListener('click', function() {
+            var fullComment = commentElement.getAttribute('data-full-comment');
+            modalBody.textContent = fullComment; // Populate modal with full comment
+        });
+    });
 });
+
+
 </script>
