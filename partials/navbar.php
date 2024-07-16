@@ -22,14 +22,42 @@ if (isset($_SESSION['userID'])) {
   }
 }
 
+$sql = "SELECT m.movieID, m.title, m.director, m.releaseYear, m.genre, u.username, u.userID, m.thumbnail, u.picture, m.comment
+  FROM tbl_movie m
+  JOIN tbl_users u ON m.userID = u.userID"; 
+$result = $conn->query($sql);
+
+$movies = [];
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $movies[] = $row;
+    }
+}
+
+$isAdmin = $_SESSION['isAdmin'] ?? false;
+
+$conn->close();
+
+require '../partials/editmodal.php';
+require '../partials/deletemodal.php';
+
+$search = $_GET['search'] ?? '';
+if (!empty($search)) {
+    $movies = array_filter($movies, function($movie) use ($search) {
+        return stripos($movie['title'], $search) !== false;
+    });
+}
+
+
 ?>
 
 <nav class="sticky-top nav-bar-custom">
   
-  <div class="bg-primary d-lg-none">
+  <div class="d-lg-none d-flex w-100 justify-content-between">
     <button class="btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">
       <i class="lni lni-menu"></i>
     </button>
+    <span>search</span>
   </div>
   
   <div class="container">
@@ -71,10 +99,10 @@ if (isset($_SESSION['userID'])) {
   
   <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel" >
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasResponsiveLabel">Menu</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
+      <img class="img-circle-md" src="../src/images/users/<?= !empty($picture) ? htmlspecialchars($picture) : 'no_image.png' ?>">
       <ul class="nav flex-column">
         <li><a href="#" class="nav-link">User Info</a></li>
         <li><a href="../src/login.view.php" class="nav-link">Logout</a></li>

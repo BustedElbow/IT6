@@ -12096,6 +12096,14 @@ textarea.form-control-lg {
      object-fit: cover;
 }
 
+.img-circle-md {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .img-circle-sm {
   border-radius: 50%;
   width: 35px;
@@ -12122,4 +12130,8 @@ textarea.form-control-lg {
 
 .profile-name-input:focus {
   outline: none;
+}
+
+.comment:hover {
+  cursor: pointer;
 }/*# sourceMappingURL=main.css.map */
