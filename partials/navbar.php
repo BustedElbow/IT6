@@ -90,6 +90,14 @@ if (!empty($search)) {
                     </a>
                   </div>
                 </li>
+                <li>
+                  <div class="d-flex gap-2 dropdown-item">
+                    <img class="custom-img" src="../src/images/svg/user.svg">
+                    <a class="custom-link" href="../src/watchlatermain.php">
+                      Watch Later
+                    </a>
+                  </div>
+                </li>
               </ul>
             </li>
         </ul>

@@ -54,7 +54,6 @@ if (!empty($search)) {
                 <button class="btn btn-secondary" type="button" id="dropdownMenuButton<?php echo $movie['movieID']; ?>" data-bs-toggle="dropdown" aria-expanded="false">
                   <i class="lni lni-more-alt"></i>
                 </button>
-          
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton<?php echo $movie['movieID']; ?>">
                   <?php if ($isAdmin || $_SESSION['userID'] == ($movie['userID'] ?? null)): ?>
                     <li><button type="button" class="btn custom-btn editBtn" data-bs-toggle="modal" data-bs-target="#editMovieModal" 
@@ -67,23 +66,22 @@ if (!empty($search)) {
                     <li><button type="button" class="btn btn-danger deleteBtn" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" 
                       data-movie-id="<?= htmlspecialchars($movie['movieID'] ?? ''); ?>">Delete</button></li>
                   <?php endif; ?>
-                    <li><a class="dropdown-item" href="#">Watch Later</a></li>
+                  <form action="../logic/addwatchlater.php" method="post">
+                    <input type="hidden" name="movieID" value="<?= htmlspecialchars($movie['movieID']); ?>">
+                    <button type="submit" class="watchLaterBtn" name="watch-later-btn">Watch Later</button>
+                  </form>
                 </ul>
               </div>
             <div class="card-body">
               <h5 class="card-title"><?= htmlspecialchars($movie['title'] ?? ''); ?></h5>
               <p class="card-text mb-1">Directed by <?= htmlspecialchars($movie['director'] ?? ''); ?></p>
               <p class="card-text mb-2">Released on <?= !empty($movie['releaseYear']) ? date_format(date_create($movie['releaseYear']), 'F j, Y') : ''; ?></p>
-              <p class="card-text mb-3"><span class="genre-tag"><?= htmlspecialchars($movie['genre'] ?? '--Not Set--'); ?></span></p> 
-              
+              <p class="card-text mb-3"><span class="genre-tag"><?= htmlspecialchars($movie['genre'] ?? '--Not Set--'); ?></span></p>            
               <p class="card-text mb-3 comment fst-italic" data-bs-toggle="modal" data-bs-target="#fullCommentModal" data-full-comment="<?= htmlspecialchars($movie['comment'] ?? '--Not Set--'); ?>"><span class="comment-tag"><?= htmlspecialchars($movie['comment'] ?? '--Not Set--',15);?></span></p>
               <div class="d-flex gap-0 mt-4">
                 <img src="../src/images/users/<?= !empty($movie['picture']) ? htmlspecialchars($movie['picture']) : 'no_image.png'; ?>" class="img-circle-sm" alt="User Picture">
                 <span class="align-self-center"><?= htmlspecialchars($movie['username'] ?? ''); ?></span>
-              </div>
-                
-                
-              
+              </div>           
             </div>
           </div>
         </div>
@@ -94,7 +92,6 @@ if (!empty($search)) {
       </div>
     <?php endif; ?>
   </div>
-
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
@@ -125,7 +122,33 @@ if (!empty($search)) {
             modalBody.textContent = fullComment; // Populate modal with full comment
         });
     });
-});
 
+    //watch later button
+    var watchLaterButtons = document.querySelectorAll('.watchLaterBtn');
+
+    watchLaterButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            var movieID = this.getAttribute('data-movie-id'); // Get the movie ID
+
+            // Dynamically create a form
+            var form = document.createElement('form');
+            form.action = 'addwatchlater.php'; // The PHP file that processes the watch later action
+            form.method = 'POST';
+
+            // Create a hidden input to hold the movie ID
+            var input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'movieID';
+            input.value = movieID;
+
+            // Append the input to the form and the form to the body
+            form.appendChild(input);
+            document.body.appendChild(form);
+
+            // Submit the form
+            form.submit();
+});
+});
+  });
 
 </script>

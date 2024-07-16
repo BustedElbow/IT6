@@ -18,14 +18,14 @@
 <?php require '../partials/navbar.php'; ?>
 
   <main class="main container py-2">
-  
-    <?php require '../partials/movielist.php'; ?>
     
-    <?php require '../partials/addmodal.php'; ?>  
+    <?php require '../partials/watchlater.php'; ?>
+    
+    <?php require '../logic/addwatchlater.php'; ?>
+
+    <?php require '../partials/watchlater.php'; ?>  
     
   </main>
   <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
