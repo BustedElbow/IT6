@@ -48,6 +48,7 @@ if (!empty($search)) {
       if ($_SESSION['userID'] == ($movie['userID'] ?? null)):
         $hasMovies = true;
         ?>
+        
         <div class="col-lg-3 col-md-4 mb-3">
           <div class="card card-color w-auto h-100">
             <img src="<?= !empty($movie['thumbnail']) ? '../src/images/movies/' . htmlspecialchars($movie['thumbnail']) : '../src/images/movies/no_image.png'; ?>" class="card-img-top img-fluid" alt="<?= htmlspecialchars($movie['title'] ?? 'Default Title'); ?>">
@@ -95,6 +96,7 @@ if (!empty($search)) {
               <p class="card-text mb-1">Directed by <?= htmlspecialchars($movie['director'] ?? ''); ?></p>
               <p class="card-text mb-2">Released on <?= !empty($movie['releaseYear']) ? date_format(date_create($movie['releaseYear']), 'F j, Y') : ''; ?></p>
               <p class="card-text mb-1"><span class="genre-tag"><?= htmlspecialchars($movie['genre'] ?? '--Not Set--'); ?></span></p> 
+              <p class="card-text mb-3 comment fst-italic" data-bs-toggle="modal" data-bs-target="#fullCommentModal" data-full-comment="<?= htmlspecialchars($movie['comment'] ?? '--Not Set--'); ?>"><span class="comment-tag"><?= htmlspecialchars($movie['comment'] ?? '--Not Set--',15);?></span></p>
               <div class="d-flex gap-0 mt-4">
                 <img src="../src/images/users/<?= !empty($movie['picture']) ? htmlspecialchars($movie['picture']) : 'no_image.png'; ?>" class="img-circle-sm" alt="User Picture">
                 <span class="align-self-center"><?= htmlspecialchars($movie['username'] ?? ''); ?></span>
@@ -106,7 +108,8 @@ if (!empty($search)) {
                   data-movie-title="<?= htmlspecialchars($movie['title'] ?? ''); ?>" 
                   data-movie-director="<?= htmlspecialchars($movie['director'] ?? ''); ?>" 
                   data-release-date="<?= htmlspecialchars($movie['releaseYear'] ?? ''); ?>"
-                  data-movie-genre="<?= htmlspecialchars($movie['genre'] ?? ''); ?>">Edit</button>
+                  data-movie-genre="<?= htmlspecialchars($movie['genre'] ?? ''); ?>" 
+                  data-movie-comment="<?= htmlspecialchars($movie['comment'] ?? ''); ?>">Edit</button>
                   <button type="button" class="btn btn-danger deleteBtn" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" 
                   data-movie-id="<?= htmlspecialchars($movie['movieID'] ?? ''); ?>">Delete</button>
                 </div>
