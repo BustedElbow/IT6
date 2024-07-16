@@ -8,6 +8,7 @@ $director = $_POST['director'];
 $releaseDate = $_POST['releaseDate'];
 $genre = $_POST['genre'];
 $userID = $_SESSION['userID']; 
+$comment = isset($_POST['comment']) ? $_POST['comment'] : '';
 
 $genre = $_POST['genre'] === '' ? null : $_POST['genre'];
 
@@ -29,17 +30,18 @@ if (isset($_FILES['thumbnail']) && $_FILES['thumbnail']['error'] == UPLOAD_ERR_O
   $fileName = ''; 
 }
 
-$sql = "INSERT INTO tbl_movie (title, director, releaseYear, genre, userID, thumbnail) VALUES (?, ?, ?, ?, ?, ?)";
+$sql = "INSERT INTO tbl_movie (title, director, releaseYear, genre, userID, thumbnail, comment) VALUES (?, ?, ?, ?, ?, ?,?)";
 
 $stmt = $conn->prepare($sql);
 
-$stmt->bind_param("ssssis", $title, $director, $releaseDate, $genre, $userID, $fileName);
+$stmt->bind_param("ssssiss", $title, $director, $releaseDate, $genre, $userID, $fileName, $comment);
 
 if ($stmt->execute()) {
     header('Location: ../src/index.php');
 } else {
     echo "Error: " . $stmt->error;
 }
+
 
 $stmt->close();
 

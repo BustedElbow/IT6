@@ -1,7 +1,7 @@
 <?php
 require '../logic/connection.php';
 
-$sql = "SELECT m.movieID, m.title, m.director, m.releaseYear, m.genre, u.username, u.userID, m.thumbnail, u.picture
+$sql = "SELECT m.movieID, m.title, m.director, m.releaseYear, m.genre, u.username, u.userID, m.thumbnail, u.picture, m.comment
   FROM tbl_movie m
   JOIN tbl_users u ON m.userID = u.userID"; 
 $result = $conn->query($sql);
@@ -55,13 +55,15 @@ if (!empty($search)) {
               <p class="card-text mb-1">Directed by <?= htmlspecialchars($movie['director'] ?? ''); ?></p>
               <p class="card-text mb-2">Released on <?= !empty($movie['releaseYear']) ? date_format(date_create($movie['releaseYear']), 'F j, Y') : ''; ?></p>
               <p class="card-text mb-3"><span class="genre-tag"><?= htmlspecialchars($movie['genre'] ?? '--Not Set--'); ?></span></p> 
+              <p class="card-text mb-3">Comment: <span class="comment-tag"><?= htmlspecialchars($movie['comment'] ?? '--Not Set--'); ?></span></p>
               <?php if ($isAdmin || $_SESSION['userID'] == ($movie['userID'] ?? null)): ?>
                 <button type="button" class="btn custom-btn editBtn" data-bs-toggle="modal" data-bs-target="#editMovieModal" 
                 data-movie-id="<?= htmlspecialchars($movie['movieID'] ?? ''); ?>" 
                 data-movie-title="<?= htmlspecialchars($movie['title'] ?? ''); ?>" 
                 data-movie-director="<?= htmlspecialchars($movie['director'] ?? ''); ?>" 
                 data-release-date="<?= htmlspecialchars($movie['releaseYear'] ?? ''); ?>"
-                data-movie-genre="<?= htmlspecialchars($movie['genre'] ?? ''); ?>">Edit</button>
+                data-movie-genre="<?= htmlspecialchars($movie['genre'] ?? ''); ?>"
+                data-movie-comment="<?= htmlspecialchars($movie['comment'] ?? ''); ?>">Edit</button>
                 <button type="button" class="btn btn-danger deleteBtn" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" 
                 data-movie-id="<?= htmlspecialchars($movie['movieID'] ?? ''); ?>">Delete</button>
               <?php endif; ?>

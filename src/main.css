@@ -11969,6 +11969,10 @@ textarea.form-control-lg {
   background-color: #3DCCCC;
 }
 
+.custom-btn:hover {
+  background-color: #008080;
+}
+
 .card-img-top {
   width: 100%;
   height: 300px;
@@ -12007,29 +12011,13 @@ textarea.form-control-lg {
   display: flex;
   align-content: center;
   flex-wrap: wrap;
-  padding: 0.5rem 0rem;
-}
-
-.custom-form-height {
-  min-height: 4rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.border-radius-container {
-  border-radius: 15px;
-  padding-bottom: 4rem;
+  padding: 0.75rem 0rem;
+  border-bottom: solid 1px #3DCCCC;
 }
 
 .border-radius-register {
   border-radius: 15px;
   padding: 4rem;
-}
-
-.text-custom-blue {
-  color: #3DCCCC;
-  padding: 0.5rem 0rem;
-  font-size: 20px;
 }
 
 .genre-tag {
@@ -12041,4 +12029,97 @@ textarea.form-control-lg {
 
 .user-added {
   font-style: italic;
+}
+
+.custom-link {
+  align-self: center;
+  text-decoration: none;
+}
+
+.custom-img {
+  align-self: center;
+  height: 1rem;
+  width: 1rem;
+}
+
+.login-container {
+  width: 30rem;
+  background-color: #282929;
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+
+.custom-input {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--bs-body-color);
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: #383838;
+  border-radius: var(--bs-border-radius);
+  border: none;
+}
+
+.custom-input-alt {
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--bs-body-color);
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: #383838;
+  border-radius: var(--bs-border-radius);
+  border: none;
+}
+
+.custom-input-alt::file-selector-button {
+  background-color: rgb(97, 97, 97);
+  border: none;
+  color: #3DCCCC;
+  padding: 0.375rem 0.75rem;
+  cursor: pointer;
+}
+
+.img-circle {
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.img-circle-sm {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 0.5rem;
+}
+
+.profile-card {
+  background-color: #282929;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.profile-name-input {
+  background-color: #282929;
+  border: none;
+  color: white;
+  font-size: 32px;
+  font-weight: 500;
+  width: 100%;
+}
+
+.profile-name-input:focus {
+  outline: none;
 }/*# sourceMappingURL=main.css.map */

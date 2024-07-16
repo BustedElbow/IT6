@@ -17,15 +17,15 @@
           </div>
           <div class="mb-3">
             <label for="movieDirector" class="form-label">Director</label>
-            <input type="text" class="form-control" id="movieDirector" name="director">
+            <input type="text" class="form-control" id="movieDirector" name="director" >
           </div>
           <div class="mb-3">
             <label for="releaseDate" class="form-label">Release Date</label>
-            <input type="date" class="form-control" id="releaseDate" name="releaseDate">
+            <input type="date" class="form-control" id="releaseDate" name="releaseDate" >
           </div>
           <div class="mb-3">
-            <label for="movieGenre" class="form-label">Genre</label>
-            <div id="genreTags" class="mt-2">
+            <label for="movieGenre" class="form-label" required>Genre</label>
+            <div id="genreTags" class="mb-3">
               <select class="form-control" id="movieGenre" name="genre">
                 <option value="">Select a Genre</option>
                 <option value="Action">Action</option>
@@ -39,6 +39,10 @@
                 <option value="Thriller">Thriller</option>
               </select>
             </div>
+          <div>
+          <div class="mb-3">
+            <label for="comment" class="form-label">Comment:</label>
+            <input type="text" class="form-control" id="comment" name="comment">
           </div>
           <button type="submit" class="btn custom-btn">Submit</button>
         </form>

@@ -38,7 +38,11 @@
               <option value="Romance">Romance</option>
               <option value="Thriller">Thriller</option>
               <option value="Cartoon">Cartoon</option>
-            </select>
+            </select>  
+          </div>
+          <div class="mb-3">
+            <label for="comment" class="form-label">Comment:</label>
+            <input type="text" class="form-control" id="comment" name="comment">
           </div>
           <button type="submit" name="save" class="btn custom-btn">Save Changes</button>
         </form>
@@ -60,12 +64,15 @@ document.addEventListener('DOMContentLoaded', () => {
       let movieDirector = this.getAttribute('data-movie-director');
       let releaseDate = this.getAttribute('data-release-date');
       let genre = this.getAttribute('data-movie-genre');
+      let comment = this.getAttribute('data-movie-comment');
 
       document.getElementById('movieID').value = movieId;
       document.getElementById('movieTitle').value = movieTitle;
       document.getElementById('movieDirector').value = movieDirector;
       document.getElementById('releaseDate').value = releaseDate;
       document.getElementById('movieGenre').value = genre;
+      document.getElementById('comment').value = comment;
+      console.log(comment);
     });
   });
 });

@@ -10,6 +10,7 @@ if (isset($_POST['save'])) {
   $releaseDate = $_POST['releaseDate'];
   $genre = $_POST['genre'];
   $userID = $_SESSION['userID'];
+  $comment =  $_POST['comment'];
 
   $genre = $_POST['genre'] === '' ? null : $_POST['genre'];
   
@@ -30,11 +31,11 @@ if (isset($_POST['save'])) {
   }
 
   if (!empty($fileName)) {
-      $sql = "UPDATE tbl_movie SET title = ?, director = ?, releaseYear = ?, genre = ?, thumbnail = ? WHERE movieID = ?";
-      $params = ["sssssi", $title, $director, $releaseDate, $genre, $fileName, $movieID];
+      $sql = "UPDATE tbl_movie SET title = ?, director = ?, releaseYear = ?, genre = ?, thumbnail = ?, comment = ? WHERE movieID = ?";
+      $params = ["ssssssi", $title, $director, $releaseDate, $genre, $fileName, $comment, $movieID];
   } else {
-      $sql = "UPDATE tbl_movie SET title = ?, director = ?, releaseYear = ?, genre = ? WHERE movieID = ?";
-      $params = ["ssssi", $title, $director, $releaseDate, $genre, $movieID];
+      $sql = "UPDATE tbl_movie SET title = ?, director = ?, releaseYear = ?, genre = ?, comment = ? WHERE movieID = ?";
+      $params = ["sssssi", $title, $director, $releaseDate, $genre, $comment, $movieID];
   }
 
   $stmt = $conn->prepare($sql);
