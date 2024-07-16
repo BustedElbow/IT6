@@ -22,7 +22,6 @@ if (isset($_POST['profile-save'])) {
         }
     }
 
-    // Initialize SQL query and parameters array
     $sql = "UPDATE tbl_users SET username = ?";
     $params = ["s", $username];
 

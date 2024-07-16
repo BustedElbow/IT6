@@ -133,6 +133,13 @@ $input-focus-border-color: black;
   object-fit: cover;
 }
 
+.img-circle-md {
+  border-radius: 50%;
+  width: 100px; 
+  height: 100px; 
+  object-fit: cover;
+}
+
 .img-circle-sm {
   border-radius: 50%;
   width: 35px; 
