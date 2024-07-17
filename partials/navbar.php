@@ -84,17 +84,17 @@ if (!empty($search)) {
                 </li>
                 <li>
                   <div class="d-flex gap-2 dropdown-item">
-                    <i class="custom-img lni lni-exit"></i>
-                    <a class="custom-link" href="../src/login.view.php">
-                    Logout
+                    <img class="custom-img" src="../src/images/svg/user.svg">
+                    <a class="custom-link" href="../src/watchlater.view.php">
+                      Watch Later
                     </a>
                   </div>
                 </li>
                 <li>
                   <div class="d-flex gap-2 dropdown-item">
-                    <img class="custom-img" src="../src/images/svg/user.svg">
-                    <a class="custom-link" href="../src/watchlater.view.php">
-                      Watch Later
+                    <i class="custom-img lni lni-exit"></i>
+                    <a class="custom-link" href="../src/login.view.php">
+                    Logout
                     </a>
                   </div>
                 </li>

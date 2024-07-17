@@ -43,7 +43,10 @@ if (!empty($search)) {
   </div>
   <div class="row gx-3 mb-5">
     <?php
-    $hasMovies = false; 
+    $hasMovies = false;
+    usort($movies, function($a, $b) {
+      return strcmp($a['title'], $b['title']);
+    }); 
     foreach ($movies as $movie):
         $hasMovies = true;
         ?>
@@ -72,7 +75,7 @@ if (!empty($search)) {
                   </form>
                 </ul>
               </div>
-            <div class="card-body">
+            <div class="card-body d-flex flex-column justify-content-between">
               <h5 class="card-title"><?= htmlspecialchars($movie['title'] ?? ''); ?></h5>
               <p class="card-text mb-1">Directed by <?= htmlspecialchars($movie['director'] ?? ''); ?></p>
               <p class="card-text mb-2">Released on <?= !empty($movie['releaseYear']) ? date_format(date_create($movie['releaseYear']), 'F j, Y') : ''; ?></p>
@@ -128,24 +131,21 @@ if (!empty($search)) {
 
     watchLaterButtons.forEach(function(button) {
         button.addEventListener('click', function() {
-            var movieID = this.getAttribute('data-movie-id'); // Get the movie ID
+            var movieID = this.getAttribute('data-movie-id'); 
 
-            // Dynamically create a form
             var form = document.createElement('form');
-            form.action = 'addwatchlater.php'; // The PHP file that processes the watch later action
+            form.action = 'addwatchlater.php';
             form.method = 'POST';
 
-            // Create a hidden input to hold the movie ID
             var input = document.createElement('input');
             input.type = 'hidden';
             input.name = 'movieID';
             input.value = movieID;
 
-            // Append the input to the form and the form to the body
             form.appendChild(input);
             document.body.appendChild(form);
 
-            // Submit the form
+            
             form.submit();
 });
 });

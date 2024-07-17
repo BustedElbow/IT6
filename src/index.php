@@ -17,15 +17,16 @@
   
 <?php require '../partials/navbar.php'; ?>
 
+<?php include '../partials/alerts.php'; ?>
+
   <main class="main container py-2">
   
     <?php require '../partials/movielist.php'; ?>
     
     <?php require '../partials/addmodal.php'; ?>  
-    
+
+
   </main>
   <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-

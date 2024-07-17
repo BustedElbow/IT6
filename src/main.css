@@ -12134,4 +12134,8 @@ textarea.form-control-lg {
 
 .comment:hover {
   cursor: pointer;
+}
+
+.kebab {
+  background-color: rgba(0, 0, 0, 0.5);
 }/*# sourceMappingURL=main.css.map */

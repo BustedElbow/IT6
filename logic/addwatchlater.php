@@ -16,15 +16,17 @@ if(isset($_POST['watch-later-btn']) && isset($_SESSION['userID'])) {
 
   if($result->num_rows > 0) {
       // Movie is already in the watch later list
-      echo "This movie is already in your Watch Later list.";
+      $_SESSION['watchLaterExists'] = true; // Set a session variable
+      header('Location: ../src/index.php');
   } else {
       // Movie is not in the watch later list, proceed with insertion
       $stmt = $conn->prepare("INSERT INTO tbl_watchlater (userID, movieID) VALUES (?, ?)");
       $stmt->bind_param("ii", $userID, $movieID);
 
       // Execute the prepared statement
-      if($stmt->execute()) {
-          header('Location: ../src/index.php');
+      if($stmt->execute()) {  
+        $_SESSION['watchLaterAdded'] = true; 
+        header('Location: ../src/index.php');
       } else {
           // If the query failed, output error
           echo "Error: " . $stmt->error;

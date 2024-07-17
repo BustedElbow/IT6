@@ -42,7 +42,7 @@ if (isset($_POST['save'])) {
   $stmt->bind_param(...$params);
 
   if ($stmt->execute()) {
-      header('Location: ../src/index.php');
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
   } else {
       echo "Error: " . $stmt->error;
   }

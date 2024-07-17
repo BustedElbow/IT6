@@ -15,7 +15,10 @@
 
 <body>
   
-<?php require '../partials/navbar.php'; ?>
+<?php 
+require '../partials/navbar.php';
+require '../partials/commentmodal.php'; 
+?>
   
   <main class="container py-2">  
     <div class="d-flex justify-content-center align-items-center mt-3">
@@ -36,7 +39,7 @@
             <div class="d-flex flex-column flex-md-row gap-2 mt-3">
               <button class="btn custom-btn" type="submit" name="profile-save">Save Changes</button>
               <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal"
-              data-user-id="<?= $_SESSION['userID'] ?>" id="delete-profile">Delete</button>
+              data-user-id="<?= $_SESSION['userID'] ?>" id="delete-profile">Deactivate</button>
             </div>
           </form>
         </div>
@@ -59,23 +62,30 @@
         <div class="col-lg-3 col-md-4 mb-3">
           <div class="card card-color w-auto h-100">
             <img src="<?= !empty($movie['thumbnail']) ? '../src/images/movies/' . htmlspecialchars($movie['thumbnail']) : '../src/images/movies/no_image.png'; ?>" class="card-img-top img-fluid" alt="<?= htmlspecialchars($movie['title'] ?? 'Default Title'); ?>">
+            <div class="dropdown position-absolute top-0 end-0">
+                <button class="btn " type="button" id="dropdownMenuButton<?php echo $movie['movieID']; ?>" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="lni lni-more-alt"></i>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton<?php echo $movie['movieID']; ?>">
+                  <?php if ($isAdmin || $_SESSION['userID'] == ($movie['userID'] ?? null)): ?>
+                    <li><button type="button" class="btn editBtn w-100 text-start" data-bs-toggle="modal" data-bs-target="#editMovieModal" 
+                      data-movie-id="<?= htmlspecialchars($movie['movieID'] ?? ''); ?>" 
+                      data-movie-title="<?= htmlspecialchars($movie['title'] ?? ''); ?>" 
+                      data-movie-director="<?= htmlspecialchars($movie['director'] ?? ''); ?>" 
+                      data-release-date="<?= htmlspecialchars($movie['releaseYear'] ?? ''); ?>"
+                      data-movie-genre="<?= htmlspecialchars($movie['genre'] ?? ''); ?>"
+                      data-movie-comment="<?= htmlspecialchars($movie['comment'] ?? ''); ?>">Edit</button></li>
+                    <li><button type="button" class="btn deleteBtn w-100 text-start" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" 
+                      data-movie-id="<?= htmlspecialchars($movie['movieID'] ?? ''); ?>">Delete</button></li>
+                  <?php endif; ?>
+                </ul>
+              </div>
             <div class="card-body">
               <h5 class="card-title"><?= htmlspecialchars($movie['title'] ?? ''); ?></h5>
               <p class="card-text mb-1">Directed by <?= htmlspecialchars($movie['director'] ?? ''); ?></p>
               <p class="card-text mb-2">Released on <?= !empty($movie['releaseYear']) ? date_format(date_create($movie['releaseYear']), 'F j, Y') : ''; ?></p>
               <p class="card-text mb-3"><span class="genre-tag"><?= htmlspecialchars($movie['genre'] ?? '--Not Set--'); ?></span></p> 
-              <p class="card-text mb-3">Comment: <span class="comment-tag"><?= htmlspecialchars($movie['comment'] ?? '--Not Set--'); ?></span></p>
-              <?php if ($isAdmin || $_SESSION['userID'] == ($movie['userID'] ?? null)): ?>
-                <button type="button" class="btn custom-btn editBtn" data-bs-toggle="modal" data-bs-target="#editMovieModal" 
-                data-movie-id="<?= htmlspecialchars($movie['movieID'] ?? ''); ?>" 
-                data-movie-title="<?= htmlspecialchars($movie['title'] ?? ''); ?>" 
-                data-movie-director="<?= htmlspecialchars($movie['director'] ?? ''); ?>" 
-                data-release-date="<?= htmlspecialchars($movie['releaseYear'] ?? ''); ?>"
-                data-movie-genre="<?= htmlspecialchars($movie['genre'] ?? ''); ?>"
-                data-movie-comment="<?= htmlspecialchars($movie['comment'] ?? ''); ?>">Edit</button>
-                <button type="button" class="btn btn-danger deleteBtn" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" 
-                data-movie-id="<?= htmlspecialchars($movie['movieID'] ?? ''); ?>">Delete</button>
-              <?php endif; ?>
+              <p class="card-text mb-3 comment fst-italic" data-bs-toggle="modal" data-bs-target="#fullCommentModal" data-full-comment="<?= htmlspecialchars($movie['comment'] ?? '--Not Set--'); ?>"><span class="comment-tag"><?= htmlspecialchars($movie['comment'] ?? '--Not Set--',15);?></span></p>
             </div>
           </div>
         </div>
@@ -125,7 +135,36 @@
         document.getElementById('deleteUserID').value = userID
 
       })
+
+      function truncateText(selector, maxLength) {
+        var elements = document.querySelectorAll(selector);
+        for (var i = 0; i < elements.length; i++) {
+            var element = elements[i];
+            if (element.innerText.length > maxLength) {
+                element.innerText = element.innerText.substr(0, maxLength) + '...';
+                element.classList.add('truncated');
+            }
+        }
+    }
+
+    // Apply truncation to all elements with the class 'comment'
+    truncateText('.comment', 60); // Truncate to 100 characters
+    
+    //comment modal
+  
+    var commentElements = document.querySelectorAll('.comment');
+    var fullCommentModal = document.getElementById('fullCommentModal');
+    var modalBody = fullCommentModal.querySelector('.modal-body');
+
+    commentElements.forEach(function(commentElement) {
+        commentElement.addEventListener('click', function() {
+            var fullComment = commentElement.getAttribute('data-full-comment');
+            modalBody.textContent = fullComment; // Populate modal with full comment
+        });
+    });
     })
+
+
   </script>
   <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
