@@ -50,25 +50,25 @@ if (!empty($search)) {
         <div class="col-lg-3 col-md-4 mb-3">
           <div class="card card-color w-auto h-100 position-relative">
             <img src="<?= !empty($movie['thumbnail']) ? '../src/images/movies/' . htmlspecialchars($movie['thumbnail']) : '../src/images/movies/no_image.png'; ?>" class="card-img-top img-fluid" alt="<?= htmlspecialchars($movie['title'] ?? 'Default Title'); ?>">
-            <div class="dropdown position-absolute top-0 end-0">
-                <button class="btn btn-secondary" type="button" id="dropdownMenuButton<?php echo $movie['movieID']; ?>" data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="dropdown position-absolute top-0 end-0">
+                <button class="btn " type="button" id="dropdownMenuButton<?php echo $movie['movieID']; ?>" data-bs-toggle="dropdown" aria-expanded="false">
                   <i class="lni lni-more-alt"></i>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton<?php echo $movie['movieID']; ?>">
                   <?php if ($isAdmin || $_SESSION['userID'] == ($movie['userID'] ?? null)): ?>
-                    <li><button type="button" class="btn custom-btn editBtn" data-bs-toggle="modal" data-bs-target="#editMovieModal" 
+                    <li><button type="button" class="btn editBtn w-100 text-start" data-bs-toggle="modal" data-bs-target="#editMovieModal" 
                       data-movie-id="<?= htmlspecialchars($movie['movieID'] ?? ''); ?>" 
                       data-movie-title="<?= htmlspecialchars($movie['title'] ?? ''); ?>" 
                       data-movie-director="<?= htmlspecialchars($movie['director'] ?? ''); ?>" 
                       data-release-date="<?= htmlspecialchars($movie['releaseYear'] ?? ''); ?>"
                       data-movie-genre="<?= htmlspecialchars($movie['genre'] ?? ''); ?>"
                       data-movie-comment="<?= htmlspecialchars($movie['comment'] ?? ''); ?>">Edit</button></li>
-                    <li><button type="button" class="btn btn-danger deleteBtn" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" 
+                    <li><button type="button" class="btn deleteBtn w-100 text-start" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" 
                       data-movie-id="<?= htmlspecialchars($movie['movieID'] ?? ''); ?>">Delete</button></li>
                   <?php endif; ?>
                   <form action="../logic/addwatchlater.php" method="post">
                     <input type="hidden" name="movieID" value="<?= htmlspecialchars($movie['movieID']); ?>">
-                    <button type="submit" class="watchLaterBtn" name="watch-later-btn">Watch Later</button>
+                    <button type="submit" class="btn watchLaterBtn w-100 text-start" name="watch-later-btn">Watch Later</button>
                   </form>
                 </ul>
               </div>

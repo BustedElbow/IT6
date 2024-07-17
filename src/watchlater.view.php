@@ -19,10 +19,6 @@
 
   <main class="main container py-2">
     
-    <?php require '../partials/watchlater.php'; ?>
-    
-    <?php require '../logic/addwatchlater.php'; ?>
-
     <?php require '../partials/watchlater.php'; ?>  
     
   </main>

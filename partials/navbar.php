@@ -93,7 +93,7 @@ if (!empty($search)) {
                 <li>
                   <div class="d-flex gap-2 dropdown-item">
                     <img class="custom-img" src="../src/images/svg/user.svg">
-                    <a class="custom-link" href="../src/watchlatermain.php">
+                    <a class="custom-link" href="../src/watchlater.view.php">
                       Watch Later
                     </a>
                   </div>
