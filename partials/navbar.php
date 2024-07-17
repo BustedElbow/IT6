@@ -64,7 +64,7 @@ if (!empty($search)) {
     <div class="d-none d-lg-block ms-auto">
       <div class="nav justify-content-between">
         <a class="nav-brand text-custom-blue" href="index.php"><img src="../src/images/Logo/logo_alt.png" alt=""></a>
-        <?php if (basename($_SERVER['SCRIPT_NAME']) != 'userprofile.php'): ?>
+        <?php if (basename($_SERVER['SCRIPT_NAME']) != 'userprofile.php' && basename($_SERVER['SCRIPT_NAME']) != 'watchlater.view.php'): ?>
           <form action="" method="GET" class="d-flex custom-search">
               <input type="text" name="search" placeholder="Search movies..." class="custom-input search-form">
           </form>
